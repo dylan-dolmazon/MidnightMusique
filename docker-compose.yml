@@ -1,19 +1,20 @@
 version: "3.8"
 services:
+
   db:
-    image: mysql
-    container_name: db_docker_MidnightMusique
-    restart: always
-    volumes:
-      - db-data:/var/lib/mysql
-    environment:
-      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
-    networks:
+      image: mysql
+      container_name: "MidnightMusique"
+      restart: always
+      environment:
+        MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+      volumes:
+              - .docker/data/db:/var/lib/mysql
+      networks:
       - dev
 
   phpmyadmin:
     image: phpmyadmin
-    container_name: phpmyadmin_docker_MidnightMusique
+    container_name: phpmyadmin_docker_symfony
     restart: always
     depends_on:
       - db
@@ -26,7 +27,7 @@ services:
 
   maildev:
     image: maildev/maildev
-    container_name: maildev_docker_MidnightMusique
+    container_name: maildev_docker_symfony
     command: bin/maildev --web 80 --smtp 25 --hide-extensions STARTTLS
     ports:
       - "8081:80"
@@ -36,7 +37,7 @@ services:
 
   www:
     build: php
-    container_name: www_docker_MidnightMusique
+    container_name: www_docker_symfony
     ports:
       - "8082:80"
     volumes:
