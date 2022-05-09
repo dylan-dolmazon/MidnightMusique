@@ -1,0 +1,88 @@
+/* Responsive Navigation styles begin here */
+
+nav > input,
+.nav-button {
+  display: none; /* hidden on large screens */
+}
+
+/* small screens styles */
+@media (max-width: 767px) {
+ .nav-inner {
+   position: absolute;
+   width: 70vw;  
+   transform: translateX(-100%) translateZ(0);
+   transition: transform .2s;
+   will-change: transform;
+  }
+  /* here's goes the slide effect */
+  input:checked ~ .nav-inner {
+    transform: translateX(0);
+  }
+
+  /* Button deco */
+  .nav-button {
+    display: block;
+    position: absolute;
+    top: 1rem; right: 1rem;
+    z-index: 1;
+    height: 3.5rem; width: 3.5rem;
+    background-color: transparent;
+    background-image: linear-gradient(to right, #333, #333),
+      linear-gradient(to right, #333, #333),
+      linear-gradient(to right, #333, #333);
+    background-position: center top, center, center bottom;
+    background-repeat: no-repeat;
+    background-size: 3.5rem .9rem;
+    padding: 0;
+    outline: 0;
+    border: 0;
+    cursor: pointer;
+    -webkit-tap-highlight-color:rgba(0,0,0,0);
+  }
+  nav a, #logo {
+    display: block;
+    padding: 0.7em;
+    margin-bottom: 2px;
+    text-decoration: none;
+  }
+
+  #logo{
+    width: 80px;
+    height: 60px;
+  }
+}
+a {
+  color: #333;
+  background-color: #fff;
+  transition: all 1s ease-out;
+}
+
+@media (min-width: 767px){
+  nav{
+    margin-top: 20px;
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+  }
+  nav a {
+    display: inline;
+    padding: .7em;
+    margin-bottom: 2px;
+    text-decoration: none;
+  }
+
+  #logo {
+    float: left;
+    width: 80px;
+    height: 60px;
+    margin-top: -20px;
+  }
+  
+  a:hover,
+  a:focus {  
+    color: #fff;
+    background-color: #333;
+  }
+}
+
+

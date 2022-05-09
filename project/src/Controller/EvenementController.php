@@ -15,9 +15,25 @@ use Symfony\Component\Routing\Annotation\Route;
 class EvenementController extends AbstractController
 {
     /**
-     * @Route("/evenement", name="add_evenement")
+     * @Route("/evenement", name="show_evenement")
+     * @Route("/evenement/add", name="add_evenement")
      */
-    public function index(?Evenement $evenement, Request $request, EntityManagerInterface $entityManagerInterface, NotifierInterface $notifier): Response
+
+    public function index(): Response
+    {
+
+        $repository = $this->getDoctrine()->getRepository(Evenement::class);
+
+        $evenements = $repository->findAll();
+        dump($evenements);
+        die;
+
+        return $this->render('evenement/index.html.twig', [
+            'form' => '$form->createView()',
+        ]);
+    }
+
+    public function addEvenement(?Evenement $evenement, Request $request, EntityManagerInterface $entityManagerInterface, NotifierInterface $notifier): Response
     {
 
         if (!$evenement) {

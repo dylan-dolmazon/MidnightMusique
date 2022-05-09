@@ -1,3 +1,11 @@
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
+
+show_evenement:
+  path: /evenement
+  controller: App\controller\EvenementController::index
+
+add_evenement:
+  path: /evenement/add
+  controller: App\controller\EvenementController::addEvenement
