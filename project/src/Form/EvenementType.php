@@ -23,8 +23,7 @@ class EvenementType extends AbstractType
             ->add('theme')
             ->add('nbInvite')
             ->add('occasion')
-            ->add('lieux')
-            ->add('save', SubmitType::class);
+            ->add('lieux');
     }
 
     public function configureOptions(OptionsResolver $resolver): void

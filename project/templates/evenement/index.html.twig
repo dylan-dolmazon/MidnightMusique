@@ -4,4 +4,15 @@
 {% endblock %}
 
 {% block body %}
-	{{form(form)}}{% endblock %}
+	{% for message in app.flashes('notification') %}
+		<div class="alert alert-info alert-dismissible fade show">
+			{{ message }}
+		</div>
+	{% endfor %}
+	{{form_start(form)}}
+	{{form_rest(form)}}
+	<button type="submit" name="clicked" value="submit">Enregistrer</button>
+	<button type="reset" name="clicked">Reset values</button>
+	<button type="delete" name="clicked" value="reset">Delete Evenement</button>
+	{{form_end(form)}}
+{% endblock %}
