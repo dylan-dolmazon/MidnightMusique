@@ -58,7 +58,7 @@ class Evenement
 
     public function __toString()
     {
-        return $this->getOccasion();
+        return $this->getOccasion() . " du: " . $this->affichageDateTime() . " à: " . $this->getLieux();
     }
 
     public function getId(): ?int
@@ -124,5 +124,10 @@ class Evenement
         $this->lieux = $lieux;
 
         return $this;
+    }
+
+    private function affichageDateTime()
+    {
+        return $this->date->format('d-m-Y');
     }
 }

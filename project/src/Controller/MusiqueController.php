@@ -14,11 +14,10 @@ class MusiqueController extends AbstractController
 {
     /**
      * @Route("/musique", name="musique_add")
-     * @Route("/musique/{id}/edit", name="musique_edit")
      */
+
     public function index(?Musique $musique, Request $request, EntityManagerInterface $entityManagerInterface): Response
     {
-
 
         if (!$musique) {
             $musique = new Musique();
@@ -33,7 +32,7 @@ class MusiqueController extends AbstractController
             }
             $entityManagerInterface->flush();
 
-            return $this->redirect($this->generateUrl('musique_edit', ['id' => $musique->getId()]));
+            return $this->redirect($this->generateUrl('musique_add'));
         }
 
         return $this->render('musique/index.html.twig', [
