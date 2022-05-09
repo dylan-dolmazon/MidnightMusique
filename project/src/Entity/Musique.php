@@ -57,6 +57,13 @@ class Musique
     private $importance;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="titre", type="string", length=50, nullable=false)
+     */
+    private $titre;
+
+    /**
      * @var \ListMusique
      *
      * @ORM\ManyToOne(targetEntity="ListMusique")
@@ -127,6 +134,18 @@ class Musique
     public function setImportance(string $importance): self
     {
         $this->importance = $importance;
+
+        return $this;
+    }
+
+    public function getTitre(): ?string
+    {
+        return $this->titre;
+    }
+
+    public function setTitre(string $titre): self
+    {
+        $this->titre = $titre;
 
         return $this;
     }
