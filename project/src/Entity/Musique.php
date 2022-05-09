@@ -131,7 +131,7 @@ class Musique
         return $this;
     }
 
-    public function getIdListmusique(): ?ListMusique
+    public function getIdListmusique()
     {
         return $this->idListmusique;
     }
@@ -142,6 +142,4 @@ class Musique
 
         return $this;
     }
-
-
 }
