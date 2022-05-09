@@ -52,13 +52,6 @@ class Musique
     /**
      * @var string
      *
-     * @ORM\Column(name="importance", type="string", length=255, nullable=false)
-     */
-    private $importance;
-
-    /**
-     * @var string
-     *
      * @ORM\Column(name="titre", type="string", length=50, nullable=false)
      */
     private $titre;
@@ -122,18 +115,6 @@ class Musique
     public function setStyle(string $style): self
     {
         $this->style = $style;
-
-        return $this;
-    }
-
-    public function getImportance(): ?string
-    {
-        return $this->importance;
-    }
-
-    public function setImportance(string $importance): self
-    {
-        $this->importance = $importance;
 
         return $this;
     }

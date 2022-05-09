@@ -22,6 +22,13 @@ class Appartient
     private $id;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="importance", type="string", length=50, nullable=false)
+     */
+    private $importance;
+
+    /**
      * @var \ListMusique
      *
      * @ORM\ManyToOne(targetEntity="ListMusique")
@@ -44,6 +51,18 @@ class Appartient
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function getImportance(): ?string
+    {
+        return $this->importance;
+    }
+
+    public function setImportance(string $importance): self
+    {
+        $this->importance = $importance;
+
+        return $this;
     }
 
     public function getIdList()

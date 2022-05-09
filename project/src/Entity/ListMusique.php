@@ -22,6 +22,13 @@ class ListMusique
     private $id;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="nom_list", type="string", length=50, nullable=false)
+     */
+    private $nomList;
+
+    /**
      * @var \Evenement
      *
      * @ORM\ManyToOne(targetEntity="Evenement")
@@ -31,9 +38,26 @@ class ListMusique
      */
     private $idEvenement;
 
+    public function __toString()
+    {
+        return $this->getNomList();
+    }
+
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function getNomList(): ?string
+    {
+        return $this->nomList;
+    }
+
+    public function setNomList(string $nomList): self
+    {
+        $this->nomList = $nomList;
+
+        return $this;
     }
 
     public function getIdEvenement()

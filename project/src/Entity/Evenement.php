@@ -56,6 +56,11 @@ class Evenement
      */
     private $lieux;
 
+    public function __toString()
+    {
+        return $this->getOccasion();
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -120,6 +125,4 @@ class Evenement
 
         return $this;
     }
-
-
 }

@@ -19,11 +19,12 @@ class MusiqueController extends AbstractController
     public function index(?Musique $musique, Request $request, EntityManagerInterface $entityManagerInterface): Response
     {
 
+
         if (!$musique) {
             $musique = new Musique();
         }
 
-        $form = $this->createForm(MusiqueType::class);
+        $form = $this->createForm(MusiqueType::class, $musique);
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {

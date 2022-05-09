@@ -14,11 +14,12 @@ class MusiqueType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('titre')
             ->add('artist')
             ->add('album')
             ->add('annee', NumberType::class)
             ->add('style')
+            ->add('titre')
+            ->add('idListmusique')
             ->add('save', SubmitType::class);
     }
 
