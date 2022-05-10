@@ -8,7 +8,7 @@ add_evenement:
   controller: App\Controller\EvenementController::addEvenement
 
 show_evenement:
-  path: /evenement
+  path: /
   methods: [GET]
   controller: App\Controller\EvenementController::index
 
@@ -24,7 +24,6 @@ show_ListMusique:
 
 login:
   path: /login/root
-  methods: [GET]
   controller: App\Controller\LoginController::login
 
 logout:

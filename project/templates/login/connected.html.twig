@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}LoginController
+{% endblock %}
+
+{% block body %}
+	<h1>Bienvenue
+		{{username}}!</h1>
+	<h2>Vous êtes connecté sous le role de
+		{{role}}</h2>
+	<a href="{{ path('/logout/root') }}" title="page connexion">Déconnexion</a>
+{% endblock %}
