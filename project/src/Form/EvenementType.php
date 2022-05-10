@@ -23,7 +23,8 @@ class EvenementType extends AbstractType
             ->add('theme')
             ->add('nbInvite')
             ->add('occasion')
-            ->add('lieux');
+            ->add('lieux')
+            ->add('password');
     }
 
     public function configureOptions(OptionsResolver $resolver): void

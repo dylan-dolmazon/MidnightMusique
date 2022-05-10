@@ -11,3 +11,13 @@ show_evenement:
   path: /evenement
   methods: [GET]
   controller: App\Controller\EvenementController::index
+
+add_liste:
+  path: /listmusique
+  methods: [GET]
+  controller: App\Controller\ListMusiqueController::index
+
+show_ListMusique:
+  path: /listmusique/{id}
+  methods: [GET]
+  controller: App\Controller\ListMusiqueController::showListMusique

@@ -12,9 +12,6 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ListMusiqueController extends AbstractController
 {
-    /**
-     * @Route("/listmusique", name="add_listmusique")
-     */
     public function index(?ListMusique $listMusique, Request $request, EntityManagerInterface $entityManagerInterface): Response
     {
 
@@ -34,6 +31,18 @@ class ListMusiqueController extends AbstractController
 
         return $this->render('list_musique/index.html.twig', [
             'form' => $form->createView(),
+        ]);
+    }
+
+    public function showListMusique(int $id): Response
+    {
+
+        $repository = $this->getDoctrine()->getRepository(ListMusique::class);
+
+        $list = $repository->find($id);
+
+        return $this->render('list_musique/show.html.twig', [
+            'list' => $list,
         ]);
     }
 }
