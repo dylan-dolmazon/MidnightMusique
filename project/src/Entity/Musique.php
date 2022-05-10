@@ -66,11 +66,6 @@ class Musique
      */
     private $idListmusique;
 
-    public function __toString()
-    {
-        return $this->getTitre() . " de " . $this->getArtist();
-    }
-
     public function getId(): ?int
     {
         return $this->id;
@@ -146,5 +141,9 @@ class Musique
         $this->idListmusique = $idListmusique;
 
         return $this;
+    }
+    public function __toString()
+    {
+        return $this->getTitre() . " de " . $this->getArtist();
     }
 }

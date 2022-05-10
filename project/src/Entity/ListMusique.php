@@ -38,11 +38,6 @@ class ListMusique
      */
     private $idEvenement;
 
-    public function __toString()
-    {
-        return $this->getNomList();
-    }
-
     public function getId(): ?int
     {
         return $this->id;
@@ -70,5 +65,10 @@ class ListMusique
         $this->idEvenement = $idEvenement;
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->getNomList();
     }
 }

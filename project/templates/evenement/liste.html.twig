@@ -4,5 +4,7 @@
 {% endblock %}
 
 {% block body %}
-	dump({{evenements}})
+	{% for evenement in evenements %}
+		{{ evenement.id }}
+	{% endfor %}
 {% endblock %}

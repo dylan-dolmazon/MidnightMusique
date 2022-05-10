@@ -29,16 +29,6 @@ class Appartient
     private $importance;
 
     /**
-     * @var \ListMusique
-     *
-     * @ORM\ManyToOne(targetEntity="ListMusique")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_list", referencedColumnName="id")
-     * })
-     */
-    private $idList;
-
-    /**
      * @var \Musique
      *
      * @ORM\ManyToOne(targetEntity="Musique")
@@ -47,6 +37,16 @@ class Appartient
      * })
      */
     private $idMusique;
+
+    /**
+     * @var \ListMusique
+     *
+     * @ORM\ManyToOne(targetEntity="ListMusique")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_list", referencedColumnName="id")
+     * })
+     */
+    private $idList;
 
     public function getId(): ?int
     {
@@ -65,18 +65,6 @@ class Appartient
         return $this;
     }
 
-    public function getIdList()
-    {
-        return $this->idList;
-    }
-
-    public function setIdList(?ListMusique $idList): self
-    {
-        $this->idList = $idList;
-
-        return $this;
-    }
-
     public function getIdMusique()
     {
         return $this->idMusique;
@@ -85,6 +73,18 @@ class Appartient
     public function setIdMusique(?Musique $idMusique): self
     {
         $this->idMusique = $idMusique;
+
+        return $this;
+    }
+
+    public function getIdList()
+    {
+        return $this->idList;
+    }
+
+    public function setIdList(?ListMusique $idList): self
+    {
+        $this->idList = $idList;
 
         return $this;
     }
