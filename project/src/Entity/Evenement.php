@@ -56,6 +56,13 @@ class Evenement
      */
     private $lieux;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="password", type="string", length=50, nullable=false)
+     */
+    private $password;
+
     public function __toString()
     {
         return $this->getOccasion() . " du: " . $this->affichageDateTime() . " à: " . $this->getLieux();
@@ -129,5 +136,16 @@ class Evenement
     private function affichageDateTime()
     {
         return $this->date->format('d-m-Y');
+    }
+
+    public function getPassword(): ?string
+    {
+        return $this->password;
+    }
+
+    public function setPassword(?string $password)
+    {
+        $this->password = $password;
+        return $this;
     }
 }

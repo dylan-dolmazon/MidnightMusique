@@ -23,6 +23,11 @@
 - `php bin/console make:migration`
 - `php bin/console doctrine:migrations:migrate`
 
+## Importer database
+
+- `php bin/console doctrine:mapping:import "App\Entity" annotation --path=src/Entity`
+- `php bin/console make:entity --regenerate App`
+
 ## Créer un controller
 
 - `php bin/console make:controller`
