@@ -30,3 +30,12 @@ logout:
   path: /logout/root
   methods: [GET]
   controller: App\Controller\LoginController::logout
+
+add_musique:
+  path: /musique/add
+  methods: [GET]
+  controller: App\Controller\MusiqueController::addMusique
+
+show_musique:
+  path: /musique
+  controller: App\Controller\MusiqueController::showMusique

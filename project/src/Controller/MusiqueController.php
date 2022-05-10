@@ -6,17 +6,18 @@ use App\Entity\Musique;
 use App\Form\MusiqueType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
 
 class MusiqueController extends AbstractController
 {
-    /**
-     * @Route("/musique", name="musique_add")
-     */
-
-    public function index(?Musique $musique, Request $request, EntityManagerInterface $entityManagerInterface): Response
+    public function addMusique(?Musique $musique, Request $request, EntityManagerInterface $entityManagerInterface): Response
     {
 
         if (!$musique) {
@@ -36,6 +37,41 @@ class MusiqueController extends AbstractController
         }
 
         return $this->render('musique/index.html.twig', [
+            'form' => $form->createView(),
+        ]);
+    }
+
+    public function showMusique(Request $request)
+    {
+        $repository = $this->getDoctrine()->getRepository(Musique::class);
+
+        $musiques = $repository->findBy(array(), array('id' => 'DESC'), 10);
+
+        $form = $this->createFormBuilder()
+            ->add('importance', ChoiceType::class, [
+                'choices' => [
+                    'artist' => 'artist',
+                    'titre' => 'titre',
+                    'album' => 'album',
+                    'style' => 'style',
+                    'annee' => 'annee',
+                ],
+            ])
+            ->add('data', TextType::class, [
+                'required' => true,
+            ])
+            ->add('send', SubmitType::class)
+            ->getForm();
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            // data is an array with "name", "email", and "message" keys
+            $data = $form->getData();
+            $musiques = $repository->findBy(array($data['importance'] => $data['data']), array('id' => 'DESC'), 10);
+        }
+
+        return $this->render('musique/catalogue.html.twig', [
+            'musiques' => $musiques,
             'form' => $form->createView(),
         ]);
     }

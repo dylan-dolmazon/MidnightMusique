@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MusiqueController!
+{% endblock %}
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('assets/css/catalogue.css') }}"/>
+{% endblock %}
+{% block body %}
+	<main>
+		<h2>Mon catalogue de musique</h2>
+		<table id="catalogue">
+			<thead>
+				<tr>
+					<th>Titre</th>
+					<th>Artiste</th>
+					<th>Album</th>
+					<th>Année</th>
+					<th>Style</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for musique in musiques %}
+					<tr>
+						<td>{{musique.titre}}</td>
+						<td>{{musique.artist}}</td>
+						<td>{{musique.album}}</td>
+						<td>{{musique.annee}}</td>
+						<td>{{musique.style}}</td>
+
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</main>
+	<aside>
+		{{form(form)}}
+		</aside>
+	{% endblock %}
