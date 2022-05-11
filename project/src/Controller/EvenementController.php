@@ -76,5 +76,8 @@ class EvenementController extends AbstractController
 
     public function askPassword(Request $request, $id)
     {
+        dump($request->request->get('password'));
+        dump($id);
+        die;
     }
 }
