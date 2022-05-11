@@ -2,9 +2,34 @@
 
 {% block title %}Hello EvenementController!
 {% endblock %}
-
-{% block body %}
-	{% for evenement in evenements %}
-		{{ evenement.id }}
-	{% endfor %}
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('assets/css/listevenement.css') }}"/>
 {% endblock %}
+{% block body %}
+	<main>
+		{% set cpt = 0 %}
+		{% for evenement in evenements %}
+			<div class="timeline">
+				<div {% if cpt is divisible by(2) %} class="container left" {% else %} class="container right" {% endif %}>
+					<div class="date">{{evenement.date|date('d-m')}}</div>
+					<i class="icon fa fa-home"></i>
+					<div class="content">
+						<h2>{{evenement.occasion}}</h2>
+						<p>
+							adresse:
+							{{evenement.lieux}}
+						</p>
+						<p>
+							Théme:
+							{{evenement.theme}}
+						</p>
+						<p id="exclure">
+							Nombre de participant:
+							{{evenement.nbinvite}}
+						</p>
+					</div>
+				</div>
+				{% set cpt = cpt + 1 %}
+			{% endfor %}
+		</main>
+	{% endblock %}
