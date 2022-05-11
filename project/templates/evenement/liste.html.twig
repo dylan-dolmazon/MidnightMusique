@@ -8,6 +8,11 @@
 
 {% endblock %}
 {% block body %}
+	{% for message in app.flashes('notification') %}
+		<div class="alert alert-info alert-dismissible fade show">
+			{{ message }}
+		</div>
+	{% endfor %}
 	<main>
 		{% set cpt = 0 %}
 		{% for evenement in evenements %}
@@ -39,11 +44,16 @@
 									<path d="M1 7 5.5 11 L13 1"></path>
 								</svg>
 								<button id="submitbutton" type="submit">save</button>
-								<p id="info" class="exclure">Ce mot de passe permet d'avoir accés aux listes de musiques</p>
+								<p id="info" class="exclure">Permet de donner accés aux listes de musiques</p>
 							</form>
 						</div>
 					</div>
 					{% set cpt = cpt + 1 %}
+					{% if list is defined %}
+						{% if list.idEvenement.id == evenement.id%}
+							<p>coucou</p>
+						{% endif %}
+					{% endif %}
 				{% endfor %}
 			</main>
 		{% endblock %}

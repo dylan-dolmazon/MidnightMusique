@@ -9,6 +9,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Notifier\Notification\Notification;
@@ -24,15 +25,8 @@ class EvenementController extends AbstractController
 
         $evenements = $repository->findAll();
 
-        dump($evenements);
-
-        $repository = $this->getDoctrine()->getRepository(ListMusique::class);
-
-        $lists = $repository->findAll();
-
         return $this->render('evenement/liste.html.twig', [
             'evenements' => $evenements,
-            'lists' => $lists,
         ]);
     }
 
@@ -74,10 +68,34 @@ class EvenementController extends AbstractController
         ]);
     }
 
-    public function askPassword(Request $request, $id)
+    public function askPassword(Request $request, $id, NotifierInterface $notifier)
     {
-        dump($request->request->get('password'));
-        dump($id);
-        die;
+
+        $repository = $this->getDoctrine()->getRepository(Evenement::class);
+
+        $evenement = $repository->findOneBy(array(
+            'id' => $id,
+            'password' => $request->request->get('password'),
+        ));
+
+        if ($evenement === null) {
+            $notifier->send(new Notification("Le mot de passe saisit n'est pas correct", ['browser']));
+            return new RedirectResponse($this->generateUrl('show_evenement'));
+        } else {
+            $repository = $this->getDoctrine()->getRepository(ListMusique::class);
+
+            $list = $repository->findBy(array(
+                'idEvenement' => $id
+            ));
+        }
+
+        $repository = $this->getDoctrine()->getRepository(Evenement::class);
+
+        $evenements = $repository->findAll();
+
+        return $this->render('evenement/liste.html.twig', [
+            'evenements' => $evenements,
+            'list' => $list,
+        ]);
     }
 }
