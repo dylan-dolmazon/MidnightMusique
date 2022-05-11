@@ -31,3 +31,9 @@
 ## Créer un controller
 
 - `php bin/console make:controller`
+
+## Charte graphique
+
+- bleu: #5292CF
+- orange: #FFB758
+- blanc: #FFFFFF
