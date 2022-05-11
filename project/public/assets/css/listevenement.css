@@ -22,7 +22,7 @@ body {
   content: '';
   position: absolute;
   width: 2px;
-  background: #006E51;
+  background: #5292CF;
   top: 0;
   bottom: 0;
   left: 50%;
@@ -52,7 +52,7 @@ body {
   top: calc(50% - 8px);
   right: -8px;
   background: #ffffff;
-  border: 2px solid #006E51;
+  border: 2px solid #5292CF;
   border-radius: 16px;
   z-index: 1;
 }
@@ -68,7 +68,7 @@ body {
   height: 2px;
   top: calc(50% - 1px);
   right: 8px;
-  background: #006E51;
+  background: #5292CF;
   z-index: 1;
 }
 
@@ -83,7 +83,7 @@ body {
   text-align: center;
   font-size: 14px;
   font-weight: bold;
-  color: #006E51;
+  color: #5292CF;
   text-transform: uppercase;
   letter-spacing: 1px;
   z-index: 1;
@@ -104,12 +104,12 @@ body {
   height: 40px;
   padding: 9px 0;
   top: calc(50% - 20px);
-  background: #F6D155;
-  border: 2px solid #006E51;
+  background: #FFB758;
+  border: 2px solid #5292CF;
   border-radius: 40px;
   text-align: center;
   font-size: 18px;
-  color: #006E51;
+  color: #5292CF;
   z-index: 1;
 }
 
@@ -123,7 +123,7 @@ body {
 
 .container .content {
   padding: 30px 90px 30px 30px;
-  background: #F6D155;
+  background: linear-gradient(135deg, rgb(255, 175, 28), #FFB758);
   position: relative;
   border-radius: 0 500px 500px 0;
 }
@@ -137,7 +137,7 @@ body {
   margin: 0 0 10px 0;
   font-size: 18px;
   font-weight: normal;
-  color: #006E51;
+  text-align: center;
 }
 
 .container .content p:not(#exclure) {
@@ -148,6 +148,18 @@ body {
   border: thick double #32a1ce;;
     display: inline-block;
     padding: 5px 5px 5px 5px;
+}
+
+.fa-mariage:before {
+    content: url(https://img.icons8.com/doodle/24/000000/wedding-rings--v1.png);
+}
+
+.fa-anniversaire:before {
+    content: url(https://img.icons8.com/dotty/24/000000/birthday.png);
+}
+
+.fa-party:before {
+    content: url(https://img.icons8.com/glyph-neue/24/000000/dancing-party.png);
 }
 
 @media (max-width: 767.98px) {
@@ -173,7 +185,7 @@ body {
   .container.left::before,
   .container.right::before {
     left: 100px;
-    border-color: transparent #006E51 transparent transparent;
+    border-color: transparent #5292CF transparent transparent;
   }
 
   .container.left .date,

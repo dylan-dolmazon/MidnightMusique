@@ -4,6 +4,8 @@
 {% endblock %}
 {% block stylesheets %}
 	<link rel="stylesheet" href="{{ asset('assets/css/listevenement.css') }}"/>
+	<link rel="stylesheet" href="{{ asset('assets/css/password.css') }}"/>
+
 {% endblock %}
 {% block body %}
 	<main>
@@ -12,7 +14,7 @@
 			<div class="timeline">
 				<div {% if cpt is divisible by(2) %} class="container left" {% else %} class="container right" {% endif %}>
 					<div class="date">{{evenement.date|date('d-m')}}</div>
-					<i class="icon fa fa-home"></i>
+					<i {% if evenement.occasion == "Mariage" %} class="icon fa fa-mariage" {% elseif evenement.occasion== "Anniversaire" %} class="icon fa fa-anniversaire" {% else %} class="icon fa fa-party" {% endif %}></i>
 					<div class="content">
 						<h2>{{evenement.occasion}}</h2>
 						<p>
@@ -27,9 +29,17 @@
 							Nombre de participant:
 							{{evenement.nbinvite}}
 						</p>
+						<form action="{{path('ask_password', {'id': evenement.id} )}}" method="post">
+							<input type="password" placeholder="mdp" name="password">
+							<button type="submit">save</button>
+						</form>
 					</div>
 				</div>
 				{% set cpt = cpt + 1 %}
 			{% endfor %}
 		</main>
+	{% endblock %}
+
+	{% block javascripts %}
+		<script src="{{ asset('assets/js/password.js') }}"></script>
 	{% endblock %}

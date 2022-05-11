@@ -39,3 +39,7 @@ add_musique:
 show_musique:
   path: /musique
   controller: App\Controller\MusiqueController::showMusique
+
+ask_password:
+  path: /askpassword/{id}
+  controller: App\Controller\EvenementController::askPassword
