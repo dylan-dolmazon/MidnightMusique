@@ -8,14 +8,24 @@
 {% block body %}
 	<main>
 		<h2>Mon catalogue de musique</h2>
-		<table id="catalogue">
+		<table class="container">
 			<thead>
 				<tr>
-					<th>Titre</th>
-					<th>Artiste</th>
-					<th>Album</th>
-					<th>Année</th>
-					<th>Style</th>
+					<th>
+						<h1>Titre</h1>
+					</th>
+					<th>
+						<h1>Artiste</h1>
+					</th>
+					<th>
+						<h1>Album</h1>
+					</th>
+					<th>
+						<h1>Année</h1>
+					</th>
+					<th>
+						<h1>Style</h1>
+					</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -26,7 +36,6 @@
 						<td>{{musique.album}}</td>
 						<td>{{musique.annee}}</td>
 						<td>{{musique.style}}</td>
-
 					</tr>
 				{% endfor %}
 			</tbody>

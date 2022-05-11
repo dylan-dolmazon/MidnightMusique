@@ -45,7 +45,7 @@ class MusiqueController extends AbstractController
     {
         $repository = $this->getDoctrine()->getRepository(Musique::class);
 
-        $musiques = $repository->findBy(array(), array('id' => 'DESC'), 10);
+        $musiques = $repository->findBy(array(), array('id' => 'ASC'), 10);
 
         $form = $this->createFormBuilder()
             ->add('importance', ChoiceType::class, [
@@ -67,7 +67,7 @@ class MusiqueController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             // data is an array with "name", "email", and "message" keys
             $data = $form->getData();
-            $musiques = $repository->findBy(array($data['importance'] => $data['data']), array('id' => 'DESC'), 10);
+            $musiques = $repository->findBy(array($data['importance'] => $data['data']), array('id' => 'ASC'), 10);
         }
 
         return $this->render('musique/catalogue.html.twig', [
