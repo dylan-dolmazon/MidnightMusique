@@ -19,7 +19,6 @@ add_liste:
 
 show_ListMusique:
   path: /listmusique/{id}
-  methods: [GET]
   controller: App\Controller\ListMusiqueController::showListMusique
 
 login:
@@ -43,3 +42,7 @@ show_musique:
 ask_password:
   path: /askpassword/{id}
   controller: App\Controller\EvenementController::askPassword
+
+add_ListMusique:
+  path: /addListMusique/{id}/{musique}
+  controller: App\Controller\MusiqueController::addListMusique

@@ -36,23 +36,47 @@
 						</p>
 						<form action="{{path('ask_password', {'id': evenement.id} )}}" method="post">
 							<label for="inp" class="inp">
-								<input type="password" id="inp" placeholder="Password" pattern=".{4,}" name="password" required>
+								<input type="password" class="inp" placeholder="Password" pattern=".{4,}" name="password" required>
 								<svg width="280px" height="18px" viewbox="0 0 280 18" class="border">
 									<path d="M0,12 L223.166144,12 C217.241379,12 217.899687,12 225.141066,12 C236.003135,12 241.9279,12 249.827586,12 C257.727273,12 264.639498,12 274.514107,12 C281.097179,12 281.755486,12 276.489028,12"></path>
 								</svg>
 								<svg width="14px" height="12px" viewbox="0 0 14 12" class="check">
 									<path d="M1 7 5.5 11 L13 1"></path>
 								</svg>
-								<button id="submitbutton" type="submit">save</button>
-								<p id="info" class="exclure">Permet de donner accés aux listes de musiques</p>
+								<button class="submitbutton name noselect" type="submit">Envoyer</button>
+								<p class="exclure info">Permet de donner accés aux listes de musiques</p>
 							</form>
 						</div>
 					</div>
 					{% set cpt = cpt + 1 %}
-					{% if list is defined %}
-						{% if list.idEvenement.id == evenement.id%}
-							<p>coucou</p>
-						{% endif %}
+					{% if lists is defined %}
+						<div id="divlist">
+							<ul class="withoutdeco">
+								{% for  list in lists %}
+									{% if list.idEvenement.id == evenement.id %}
+										<li>
+											<h3 class="nomlist">{{list.nomList}}</h3>
+											<a href="{{path('show_ListMusique',{'id': list.id})}}" class="voirlist link">
+												<span class="mask">
+													<div class="link-container">
+														<span class="link-title1 title">VOIR LISTE</span>
+														<span class="link-title2 title">VOIR LISTE</span>
+													</div>
+												</span>
+												<div class="link-icon">
+													<svg class="icon" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+														<path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z"/>
+													</svg>
+													<svg class="icon" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+														<path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z"/>
+													</svg>
+												</div>
+											</a>
+										</li>
+									{% endif %}
+								{% endfor %}
+							</ul>
+						</div>
 					{% endif %}
 				{% endfor %}
 			</main>

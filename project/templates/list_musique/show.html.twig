@@ -2,7 +2,57 @@
 
 {% block title %}Hello ListMusiqueController!
 {% endblock %}
-
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('assets/css/listemusique.css') }}"/>
+{% endblock %}
 {% block body %}
-	{{list.nomList}}
+	<main>
+		<h2>Les musiques associés à votre liste</h2>
+		<table class="container">
+			<thead>
+				<tr id="notshadow">
+					<th>
+						<h1>Titre</h1>
+					</th>
+					<th>
+						<h1>Artiste</h1>
+					</th>
+					<th>
+						<h1>Album</h1>
+					</th>
+					<th>
+						<h1>Année</h1>
+					</th>
+					<th>
+						<h1>Style</h1>
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for musique in musiques %}
+					<tr>
+						<td>{{musique.titre}}</td>
+						<td>{{musique.artist}}</td>
+						<td>{{musique.album}}</td>
+						<td>{{musique.annee}}</td>
+						<td>{{musique.style}}</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+		<div>
+			<h2>Ajouter des musiques à
+				{{list.nomList}}</h2>
+		</div>
+	</main>
+	<aside>
+		<img id="logo" src="{{asset('assets/images/logo.png')}}" alt="logo de l'entreprise">
+		<h3 id="date">{{list.idEvenement.date|date('d-m')}}</h3>
+		<p class="title imp">Midnight Musique</p>
+		<p id="animera" class="title space">Animera votre</p>
+		<p class="title imp space">{{list.idEvenement.occasion}}</p>
+		<p id="lieux">à
+			{{ list.idEvenement.lieux }}</p>
+
+	</aside>
 {% endblock %}

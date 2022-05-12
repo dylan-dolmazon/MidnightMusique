@@ -1,0 +1,188 @@
+/*	
+	Side Navigation Menu V2, RWD
+	===================
+	Author: https://github.com/pablorgarcia
+ */
+
+ @charset "UTF-8";
+ @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
+
+ main {
+    width: 75%;
+    display: inline-block;
+ }
+
+ h1 {
+   font-size:2.6em; 
+   font-weight: 300;
+   line-height:1em;
+   color: #4DC3FA;
+ }
+
+ h2 {
+     text-align: center;
+ }
+ 
+ .blue { color: #185875; }
+ .yellow { color: #FFF842; }
+ 
+ .container th h1 {
+       font-weight: bold;
+       font-size: 1em;
+   text-align: left;
+   color: black;
+ }
+ 
+ .container td {
+       font-weight: normal;
+       font-size: 1em;
+   -webkit-box-shadow: 0 2px 2px -2px #0E1119;
+        -moz-box-shadow: 0 2px 2px -2px #0E1119;
+             box-shadow: 0 2px 2px -2px #0E1119;
+ }
+ 
+ .container {
+       text-align: left;
+       overflow: hidden;
+       width: 80%;
+       height: 100%;
+       margin-right:  auto;
+       margin-left: auto;
+   display: table;
+   padding: 0 0 8em 0;
+ }
+ 
+ .container th {
+    padding-bottom: 1%;
+    padding-top: 1%;
+    padding-left:1%;  
+ }
+
+ .container td {
+       padding-bottom: 1%;
+       padding-top: 1%;
+   padding-left:1%;  
+ }
+ 
+ /* Background-color of the odd rows */
+ .container tr:nth-child(odd) {
+    background-color: #e7e3e3;
+    border-radius: 15px;
+ }
+ 
+ /* Background-color of the even rows */
+ .container tr:nth-child(even) {
+    background-color: #e7e3e3;
+    border-radius: 15px;
+ }
+ 
+ .container th {
+       background-color: white;
+ }
+ 
+ /*.container td:first-child { }*/
+
+ .container tr:hover:not(#notshadow) {
+   background-color: #FFFFFF;
+   color: #403E10;
+   font-weight: bold;
+   
+   box-shadow: grey -1px 1px, grey -2px 2px, grey -3px 3px, grey -4px 4px, grey -5px 5px, grey -6px 6px;
+   transform: translate3d(6px, -6px, 0);
+   
+   transition-delay: 0s;
+       transition-duration: 0.4s;
+       transition-property: all;
+   transition-timing-function: line;
+ }
+ 
+ @media (max-width: 800px) {
+ .container td:nth-child(4),
+ .container th:nth-child(4) { display: none; }
+ .container td:nth-child(5),
+ .container th:nth-child(5) { display: none; }
+ }
+
+ tbody td
+{
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+ 
+tbody td:first-child
+{
+    border-left: 1px solid black;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+
+}
+ 
+tbody td:last-child
+{
+    border-right: 1px solid black;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.container {
+    border-spacing: 0 5px;
+}
+
+aside #logo {
+    float: left;
+    width: 80px;
+    height: 60px;
+}
+aside #date {
+    float: right;
+    margin-top: -5px;
+}
+
+aside .title {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 150px;
+}
+
+aside .space {
+    margin-top: -10px;
+}
+
+aside #lieux {
+    margin-top: 50px;
+    text-align: center;
+}
+
+		
+aside #demonstration {
+    margin-left: auto;
+    margin-right: auto;
+    width: 200px;
+    height: 180px;
+}
+
+aside {
+    position: relative;
+    top: -10px;
+    left: 10px;
+    display: inline-block;
+    height: 250px;
+    width: 20%;
+    background: rgb(226,226,226);
+    background: radial-gradient(circle, #5292CF -10%, rgba(255,255,255,1) 50%);
+}
+
+aside > p {
+    margin-top: 60px;
+}
+
+aside .imp {
+    font-size: 1.5em;
+    color: #faa73a;
+}
+
+aside #animera {
+    color: #363636;
+}

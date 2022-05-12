@@ -84,7 +84,7 @@ class EvenementController extends AbstractController
         } else {
             $repository = $this->getDoctrine()->getRepository(ListMusique::class);
 
-            $list = $repository->findBy(array(
+            $lists = $repository->findBy(array(
                 'idEvenement' => $id
             ));
         }
@@ -95,7 +95,7 @@ class EvenementController extends AbstractController
 
         return $this->render('evenement/liste.html.twig', [
             'evenements' => $evenements,
-            'list' => $list,
+            'lists' => $lists,
         ]);
     }
 }
