@@ -62,35 +62,9 @@ class ListMusiqueController extends AbstractController
             $cpt++;
         };
 
-        $form = $this->createFormBuilder()
-            ->add('artist', TextType::class)
-            ->add('album', TextType::class)
-            ->add('annee', NumberType::class)
-            ->add('style', TextType::class)
-            ->add('titre',  TextType::class)
-            ->add('send', SubmitType::class)
-            ->getForm();
-
-        $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
-            // data is an array with "name", "email", and "message" keys
-
-            $musique = new Musique();
-            $tmp = $form->getData();
-            $musique->setAlbum($tmp['album']);
-            $musique->setArtist($tmp['artist']);
-            $musique->setAnnee($tmp['annee']);
-            $musique->setStyle($tmp['style']);
-            $musique->setTitre($tmp['titre']);
-            $musique->setIdListmusique($list);
-
-            return $this->redirect($this->generateUrl('add_ListMusique', array('id' => $id, 'musique' => $musique)));
-        }
-
         return $this->render('list_musique/show.html.twig', [
             'list' => $list,
             'musiques' => $musiques,
-            'form' => $form->createView(),
         ]);
     }
 }
