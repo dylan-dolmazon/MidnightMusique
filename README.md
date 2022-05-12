@@ -32,6 +32,13 @@
 
 - `php bin/console make:controller`
 
+## Installer le projet
+
+- `docker-compose up`
+- `$ docker exec -it www_docker_symfony bash`
+- `/var/www: $ cd project`
+- `composer install`
+
 ## Charte graphique
 
 - bleu: #5292CF

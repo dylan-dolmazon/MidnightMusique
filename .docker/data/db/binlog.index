@@ -10,3 +10,7 @@
 ./binlog.000010
 ./binlog.000011
 ./binlog.000012
+<<<<<<< HEAD
+=======
+./binlog.000013
+>>>>>>> bc8a68f20dd68d98db60e3c921e44e2686fdd199
