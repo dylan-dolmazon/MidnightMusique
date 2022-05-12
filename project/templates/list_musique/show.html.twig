@@ -24,35 +24,37 @@
 						<h1>Année</h1>
 					</th>
 					<th>
-						<h1>Style</h1>
+						<h1>Importance</h1>
 					</th>
 				</tr>
 			</thead>
 			<tbody>
+				{% set cpt = 0 %}
 				{% for musique in musiques %}
 					<tr>
 						<td>{{musique.titre}}</td>
 						<td>{{musique.artist}}</td>
 						<td>{{musique.album}}</td>
 						<td>{{musique.annee}}</td>
-						<td>{{musique.style}}</td>
+						<td>{{appartient[cpt].importance}}</td>
 					</tr>
+					{% set cpt = cpt+1 %}
 				{% endfor %}
 			</tbody>
 		</table>
 		<div>
 			<h2>Ajouter des musiques à
 				{{list.nomList}}</h2>
-			<form class="form-style-7">
+			<form action="{{path('add_Appartient', {'id': list.idEvenement.id} )}}" method="post" class="form-style-7">
 				<ul>
 					<li>
 						<label for="titre">Titre</label>
-						<input type="text" name="titre" maxlength="100">
+						<input type="text" name="titre" maxlength="100" required="true">
 						<span>Entrer le titre de la musique</span>
 					</li>
 					<li>
-						<label for="artiste">Email</label>
-						<input type="text" name="artiste" maxlength="100">
+						<label for="artist">Artiste</label>
+						<input type="text" name="artist" maxlength="100" required="true">
 						<span>Entrer le pseudo du chanteur</span>
 					</li>
 					<li>
@@ -71,19 +73,20 @@
 						<span>Entrer le style de la musique</span>
 					</li>
 					<li>
-						<input type="submit" value="Send This">
+						<label for="style">Style</label>
+						<select name="importance">
+							<option value="obligatoire">Obligatoire</option>
+							<option value="recommande">Recommandée</option>
+							<option value="possible">Si possible</option>
+						</select>
+						<span>A quel point souhaitez vous entendre cette musique</span>
 					</li>
-				</ul>
-			</form>
-		</div>
-	</main>
-	<aside>
-		<img id="logo" src="{{asset('assets/images/logo.png')}}" alt="logo de l'entreprise">
-		<h3 id="date">{{list.idEvenement.date|date('d-m')}}</h3>
-		<p class="title imp">Midnight Musique</p>
-		<p id="animera" class="title space">Animera votre</p>
-		<p class="title imp space">{{list.idEvenement.occasion}}</p>
-		<p id="lieux">à
-			{{ list.idEvenement.lieux }}</p>
-	</aside>
-{% endblock %}
+				</li>
+			</li>
+		</li>
+		<li>
+			<input type="submit" value="Send This">
+		</li>
+	</ul>
+</form></div></main><aside><img id="logo" src="{{asset('assets/images/logo.png')}}" alt="logo de l'entreprise"><h3 id="date">{{list.idEvenement.date|date('d-m')}}</h3><p class="title imp">Midnight Musique</p><p id="animera" class="title space">Animera votre</p><p class="title imp space">{{list.idEvenement.occasion}}</p><p id="lieux">à
+{{ list.idEvenement.lieux }}</p></aside>{% endblock %}

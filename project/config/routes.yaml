@@ -43,6 +43,6 @@ ask_password:
   path: /askpassword/{id}
   controller: App\Controller\EvenementController::askPassword
 
-add_ListMusique:
-  path: /addListMusique/{id}/{musique}
-  controller: App\Controller\MusiqueController::addListMusique
+add_Appartient:
+  path: /addAppartient/{id}
+  controller: App\Controller\AppartientController:addAppartient

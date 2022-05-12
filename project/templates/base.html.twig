@@ -24,7 +24,11 @@
 				<img id="logo" src="{{asset('assets/images/logo.png')}}" alt="logo de l'entreprise">
 				<a href="{{path('show_evenement')}}">Evenement</a>
 				<a href="{{path('show_musique')}}">Musique</a>
-				<a href="#">Appartient</a>
+				{% if app.session.get('connected') is defined%}
+					{% if app.session.get('connected') == true %}
+						<a href="{{path('add_evenement')}}">coucou</a>
+					{% endif %}
+				{% endif %}
 			</div>
 		</nav>
 		{% block body %}{% endblock %}
@@ -34,4 +38,4 @@
 		icon by
 		<a target="_blank" href="https://icons8.com">Icons8</a>
 	</footer>
-</html>
+</html></body></html>

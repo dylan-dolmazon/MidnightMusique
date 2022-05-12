@@ -8,11 +8,9 @@ use App\Entity\Musique;
 use App\Form\ListMusiqueType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Form\Extension\Core\Type\NumberType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 class ListMusiqueController extends AbstractController
 {
@@ -38,9 +36,11 @@ class ListMusiqueController extends AbstractController
         ]);
     }
 
-    public function showListMusique(int $id, Request $request): Response
+    public function showListMusique(int $id, Request $request, SessionInterface $session): Response
     {
 
+        dump($session->get('connected'));
+        die;
         $repository = $this->getDoctrine()->getRepository(ListMusique::class);
 
         $list = $repository->find($id);
@@ -65,6 +65,7 @@ class ListMusiqueController extends AbstractController
         return $this->render('list_musique/show.html.twig', [
             'list' => $list,
             'musiques' => $musiques,
+            'appartient' => $appartients,
         ]);
     }
 }

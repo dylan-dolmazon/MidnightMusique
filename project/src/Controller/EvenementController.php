@@ -8,6 +8,7 @@ use App\Form\EvenementType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\ResetType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -38,6 +39,11 @@ class EvenementController extends AbstractController
         }
 
         $form = $this->createForm(EvenementType::class, $evenement);
+
+        $form->add('save', SubmitType::class);
+        $form->add('delete', SubmitType::class);
+        $form->add('resete', ResetType::class);
+
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
 

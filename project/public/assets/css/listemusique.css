@@ -66,13 +66,13 @@
  
  /* Background-color of the odd rows */
  .container tr:nth-child(odd) {
-    background-color: #e7e3e3;
+    background-color: #F3F3F3;
     border-radius: 15px;
  }
  
  /* Background-color of the even rows */
  .container tr:nth-child(even) {
-    background-color: #e7e3e3;
+    background-color: #F3F3F3;
     border-radius: 15px;
  }
  
@@ -101,8 +101,42 @@
  .container th:nth-child(4) { display: none; }
  .container td:nth-child(5),
  .container th:nth-child(5) { display: none; }
- }
 
+ aside {
+    padding: 5px;
+    border: #0E1119;
+    border: solid;
+    border-radius: 5px;
+    border-width: 2px;
+    height: 250px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    background: rgb(226,226,226);
+    background: radial-gradient(circle, #5292CF -10%, rgba(255,255,255,1) 50%);
+}
+
+ main {
+     display: block;
+ }
+}
+ @media (min-width: 800px) {
+    aside {
+        padding: 5px;
+        border: #0E1119;
+        border: solid;
+        border-radius: 5px;
+        border-width: 2px;
+        position: relative;
+        top: -750px;
+        left: 10px;
+        display: inline-block;
+        height: 300px;
+        width: 20%;
+        background: rgb(226,226,226);
+        background: radial-gradient(circle, #5292CF -10%, rgba(255,255,255,1) 50%);
+    }
+}
  tbody td
 {
     border-top: 1px solid black;
@@ -145,7 +179,7 @@ aside .title {
     margin-left: auto;
     margin-right: auto;
     display: block;
-    width: 150px;
+    width: 200px;
 }
 
 aside .space {
@@ -153,7 +187,7 @@ aside .space {
 }
 
 aside #lieux {
-    margin-top: 50px;
+    margin-top: 70px;
     text-align: center;
 }
 
@@ -165,24 +199,8 @@ aside #demonstration {
     height: 180px;
 }
 
-aside {
-    padding: 5px;
-    border: #0E1119;
-    border: solid;
-    border-radius: 5px;
-    border-width: 2px;
-    position: relative;
-    top: -10px;
-    left: 10px;
-    display: inline-block;
-    height: 250px;
-    width: 20%;
-    background: rgb(226,226,226);
-    background: radial-gradient(circle, #5292CF -10%, rgba(255,255,255,1) 50%);
-}
-
 aside > p {
-    margin-top: 60px;
+    margin-top: 100px;
 }
 
 aside .imp {
@@ -267,9 +285,7 @@ aside #animera {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 11px;
 }
-.form-style-7 textarea{
-	resize:none;
-}
+
 .form-style-7 input[type="submit"],
 .form-style-7 input[type="button"]{
 	background: #2471FF;

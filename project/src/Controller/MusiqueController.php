@@ -72,15 +72,4 @@ class MusiqueController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
-
-    public function addListMusique(Musique $musique, EntityManagerInterface $entityManagerInterface, $id)
-    {
-
-        dump($musique);
-        $entityManagerInterface->persist($musique);
-        $entityManagerInterface->flush();
-        dump($musique);
-        die;
-        return $this->redirect($this->generateUrl('show_ListMusique', array('id' => $id)));
-    }
 }

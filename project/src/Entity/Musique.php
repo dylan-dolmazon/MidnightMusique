@@ -31,21 +31,21 @@ class Musique
     /**
      * @var string
      *
-     * @ORM\Column(name="album", type="string", length=255, nullable=false)
+     * @ORM\Column(name="album", type="string", length=255, nullable=true)
      */
     private $album;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="annee", type="integer", nullable=false)
+     * @ORM\Column(name="annee", type="integer", nullable=true)
      */
     private $annee;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="style", type="string", length=255, nullable=false)
+     * @ORM\Column(name="style", type="string", length=255, nullable=true)
      */
     private $style;
 
