@@ -7,7 +7,6 @@ use App\Entity\ListMusique;
 use App\Form\EvenementType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\ResetType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -19,7 +18,7 @@ use Symfony\Component\Notifier\NotifierInterface;
 class EvenementController extends AbstractController
 {
 
-    public function index(Request $request): Response
+    public function index(): Response
     {
 
         $repository = $this->getDoctrine()->getRepository(Evenement::class);
@@ -87,5 +86,18 @@ class EvenementController extends AbstractController
             'evenements' => $evenements,
             'lists' => $lists,
         ]);
+    }
+
+    public function deleteEvenement($id, EntityManagerInterface $entitymanager)
+    {
+
+        $repository = $this->getDoctrine()->getRepository(Evenement::class);
+
+        $toDelete = $repository->find($id);
+
+        $entitymanager->remove($toDelete);
+        $entitymanager->flush();
+
+        return $this->redirect($this->generateUrl('show_evenement'));
     }
 }

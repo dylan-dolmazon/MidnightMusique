@@ -6,6 +6,7 @@
 	<link rel="stylesheet" href="{{ asset('assets/css/catalogue.css') }}"/>
 {% endblock %}
 {% block body %}
+	{% set cpt = 0 %}
 	<main>
 		<h2>Mon catalogue de musique</h2>
 		<table class="container">
@@ -29,19 +30,25 @@
 				</tr>
 			</thead>
 			<tbody>
-				{% for musique in musiques %}
+				{% for cpt in cpt * 10 .. cpt * 10 + 9 %}
 					<tr>
-						<td>{{musique.titre}}</td>
-						<td>{{musique.artist}}</td>
-						<td>{{musique.album}}</td>
-						<td>{{musique.annee}}</td>
-						<td>{{musique.style}}</td>
+						{% if musiques[cpt] is defined %}
+							<td>{{musiques[cpt].titre}}</td>
+							<td>{{musiques[cpt].artist}}</td>
+							<td>{{musiques[cpt].album}}</td>
+							<td>{{musiques[cpt].annee}}</td>
+							<td>{{musiques[cpt].style}}</td>
+						{% endif %}
 					</tr>
 				{% endfor %}
 			</tbody>
-		</table>
-	</main>
-	<aside>
-		{{form(form)}}
-		</aside>
-	{% endblock %}
+		</tbody>
+	</table>
+	{{cpt}}
+	<button onclick="{{ {% set cpt = cpt + 1 %} }}">+</button>
+	<button onclick="{% set cpt = cpt + 0 %}">-</button>
+</main>
+<aside>
+	{{form(form)}}
+	</aside>
+{% endblock %}

@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Musique;
 use App\Form\MusiqueType;
 use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\ORM\Tools\Pagination\Paginator;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -38,11 +39,11 @@ class MusiqueController extends AbstractController
         ]);
     }
 
-    public function showMusique(Request $request)
+    public function showMusique(Request $request, ?int $page)
     {
         $repository = $this->getDoctrine()->getRepository(Musique::class);
 
-        $musiques = $repository->findBy(array(), array('id' => 'ASC'), 10);
+        $musiques = $repository->findAll();
 
         $form = $this->createFormBuilder()
             ->add('importance', ChoiceType::class, [

@@ -47,13 +47,18 @@
 								<p class="exclure info">Permet de donner accés aux listes de musiques</p>
 							</form>
 						</div>
+						{% if app.session.get('connected') is defined%}
+							{% if app.session.get('connected') == true %}
+								<a href="{{path('remove_evenement', {'id': evenement.id})}}">Supprimer l'évenement</a>
+							{% endif %}
+						{% endif %}
 					</div>
 					{% set cpt = cpt + 1 %}
 					{% if lists is defined %}
-						<div id="divlist">
-							<ul class="withoutdeco">
-								{% for  list in lists %}
-									{% if list.idEvenement == evenement.id %}
+						{% if lists[0].idEvenement == evenement.id %}
+							<div id="divlist">
+								<ul class="withoutdeco">
+									{% for  list in lists %}
 										<li>
 											<h3 class="nomlist">{{list.nomList}}</h3>
 											<a href="{{path('show_ListMusique',{'id': list.id})}}" class="voirlist link">
@@ -73,10 +78,10 @@
 												</div>
 											</a>
 										</li>
-									{% endif %}
-								{% endfor %}
-							</ul>
-						</div>
+									{% endfor %}
+								</ul>
+							</div>
+						{% endif %}
 					{% endif %}
 				{% endfor %}
 			</main>
