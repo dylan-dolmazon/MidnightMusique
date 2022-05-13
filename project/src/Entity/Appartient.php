@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Appartient
  *
- * @ORM\Table(name="Appartient", indexes={@ORM\Index(name="list_number", columns={"id_list"}), @ORM\Index(name="musique_number", columns={"id_musique"})})
+ * @ORM\Table(name="appartient", indexes={@ORM\Index(name="id_listmusique", columns={"id_list"}), @ORM\Index(name="id_musique", columns={"id_musique"})})
  * @ORM\Entity
  */
 class Appartient
@@ -24,19 +24,9 @@ class Appartient
     /**
      * @var string
      *
-     * @ORM\Column(name="importance", type="string", length=50, nullable=false)
+     * @ORM\Column(name="importance", type="string", length=100, nullable=false)
      */
     private $importance;
-
-    /**
-     * @var \Musique
-     *
-     * @ORM\ManyToOne(targetEntity="Musique")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_musique", referencedColumnName="id")
-     * })
-     */
-    private $idMusique;
 
     /**
      * @var \ListMusique
@@ -47,6 +37,16 @@ class Appartient
      * })
      */
     private $idList;
+
+    /**
+     * @var \Musique
+     *
+     * @ORM\ManyToOne(targetEntity="Musique")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_musique", referencedColumnName="id")
+     * })
+     */
+    private $idMusique;
 
     public function getId(): ?int
     {
@@ -65,18 +65,6 @@ class Appartient
         return $this;
     }
 
-    public function getIdMusique()
-    {
-        return $this->idMusique;
-    }
-
-    public function setIdMusique(?Musique $idMusique): self
-    {
-        $this->idMusique = $idMusique;
-
-        return $this;
-    }
-
     public function getIdList()
     {
         return $this->idList;
@@ -85,6 +73,18 @@ class Appartient
     public function setIdList(?ListMusique $idList): self
     {
         $this->idList = $idList;
+
+        return $this;
+    }
+
+    public function getIdMusique()
+    {
+        return $this->idMusique;
+    }
+
+    public function setIdMusique(?Musique $idMusique): self
+    {
+        $this->idMusique = $idMusique;
 
         return $this;
     }
