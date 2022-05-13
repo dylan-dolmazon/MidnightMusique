@@ -41,32 +41,16 @@ class EvenementController extends AbstractController
         $form = $this->createForm(EvenementType::class, $evenement);
 
         $form->add('save', SubmitType::class);
-        $form->add('delete', SubmitType::class);
-        $form->add('resete', ResetType::class);
+        $form->add('reset', ResetType::class);
 
         $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
-
-            if ('submit' === $request->request->get('clicked')) {
-                if (!$evenement->getId()) {
-                    $entityManagerInterface->persist($evenement);
-                    $notifier->send(new Notification("L'évenement à était ajouté à la liste avec succés.", ['browser']));
-                }
-            } else if ('reset' === $request->request->get('clicked')) {
-                $repository = $this->getDoctrine()->getRepository(Evenement::class);
-                $del = $repository->findOneBy([
-                    'date' => $evenement->getDate(),
-                    'lieux' => $evenement->getLieux(),
-                ]);
-                if ($del != null) {
-                    $entityManagerInterface->remove($del);
-                    $notifier->send(new Notification("L'évenement à était supprimé avec succés.", ['browser']));
-                } else {
-                    $notifier->send(new Notification("L'évenement que vous cherchez n'existe pas.", ['browser']));
-                }
+        if ($form->isSubmitted()) {
+            if (!$evenement->getId()) {
+                $entityManagerInterface->persist($evenement);
+                $notifier->send(new Notification("L'évenement à était ajouté à la liste avec succés.", ['browser']));
             }
             $entityManagerInterface->flush();
-            return $this->redirect($this->generateUrl('add_evenement'));
+            return $this->redirect($this->generateUrl('show_evenement'));
         }
 
         return $this->render('evenement/index.html.twig', [

@@ -53,7 +53,7 @@
 						<div id="divlist">
 							<ul class="withoutdeco">
 								{% for  list in lists %}
-									{% if list.idEvenement.id == evenement.id %}
+									{% if list.idEvenement == evenement.id %}
 										<li>
 											<h3 class="nomlist">{{list.nomList}}</h3>
 											<a href="{{path('show_ListMusique',{'id': list.id})}}" class="voirlist link">

@@ -45,7 +45,7 @@
 		<div>
 			<h2>Ajouter des musiques à
 				{{list.nomList}}</h2>
-			<form action="{{path('add_Appartient', {'id': list.idEvenement.id} )}}" method="post" class="form-style-7">
+			<form action="{{path('add_Appartient', {'id': list.idEvenement} )}}" method="post" class="form-style-7">
 				<ul>
 					<li>
 						<label for="titre">Titre</label>
@@ -88,5 +88,5 @@
 			<input type="submit" value="Send This">
 		</li>
 	</ul>
-</form></div></main><aside><img id="logo" src="{{asset('assets/images/logo.png')}}" alt="logo de l'entreprise"><h3 id="date">{{list.idEvenement.date|date('d-m')}}</h3><p class="title imp">Midnight Musique</p><p id="animera" class="title space">Animera votre</p><p class="title imp space">{{list.idEvenement.occasion}}</p><p id="lieux">à
-{{ list.idEvenement.lieux }}</p></aside>{% endblock %}
+</form></div></main><aside><img id="logo" src="{{asset('assets/images/logo.png')}}" alt="logo de l'entreprise"><h3 id="date">{{evenement.date|date('d-m')}}</h3><p class="title imp">Midnight Musique</p><p id="animera" class="title space">Animera votre</p><p class="title imp space">{{evenement.occasion}}</p><p id="lieux">à
+{{ evenement.lieux }}</p></aside>{% endblock %}

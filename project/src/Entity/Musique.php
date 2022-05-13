@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Musique
  *
- * @ORM\Table(name="musique", indexes={@ORM\Index(name="id_listmusique", columns={"id_listmusique"})})
+ * @ORM\Table(name="musique")
  * @ORM\Entity
  */
 class Musique
@@ -31,40 +31,30 @@ class Musique
     /**
      * @var string
      *
-     * @ORM\Column(name="album", type="string", length=255, nullable=true)
+     * @ORM\Column(name="titre", type="string", length=255, nullable=false)
+     */
+    private $titre;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="album", type="string", length=255, nullable=false)
      */
     private $album;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="annee", type="integer", nullable=true)
+     * @ORM\Column(name="annee", type="integer", nullable=false)
      */
     private $annee;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="style", type="string", length=255, nullable=true)
+     * @ORM\Column(name="style", type="string", length=255, nullable=false)
      */
     private $style;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="titre", type="string", length=50, nullable=false)
-     */
-    private $titre;
-
-    /**
-     * @var \ListMusique
-     *
-     * @ORM\ManyToOne(targetEntity="ListMusique")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_listmusique", referencedColumnName="id")
-     * })
-     */
-    private $idListmusique;
 
     public function getId(): ?int
     {
@@ -129,21 +119,5 @@ class Musique
         $this->titre = $titre;
 
         return $this;
-    }
-
-    public function getIdListmusique()
-    {
-        return $this->idListmusique;
-    }
-
-    public function setIdListmusique(?ListMusique $idListmusique): self
-    {
-        $this->idListmusique = $idListmusique;
-
-        return $this;
-    }
-    public function __toString()
-    {
-        return $this->getTitre() . " de " . $this->getArtist();
     }
 }

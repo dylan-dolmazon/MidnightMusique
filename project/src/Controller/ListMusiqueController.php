@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Appartient;
+use App\Entity\Evenement;
 use App\Entity\ListMusique;
 use App\Entity\Musique;
 use App\Form\ListMusiqueType;
@@ -38,9 +39,6 @@ class ListMusiqueController extends AbstractController
 
     public function showListMusique(int $id, Request $request, SessionInterface $session): Response
     {
-
-        dump($session->get('connected'));
-        die;
         $repository = $this->getDoctrine()->getRepository(ListMusique::class);
 
         $list = $repository->find($id);
@@ -62,10 +60,16 @@ class ListMusiqueController extends AbstractController
             $cpt++;
         };
 
+        $repository = $this->getDoctrine()->getRepository(Evenement::class);
+        $evenement = $repository->findOneBy(array(
+            'id' => $id,
+        ));
+
         return $this->render('list_musique/show.html.twig', [
             'list' => $list,
             'musiques' => $musiques,
             'appartient' => $appartients,
+            'evenement' => $evenement,
         ]);
     }
 }

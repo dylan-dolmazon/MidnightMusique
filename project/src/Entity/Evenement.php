@@ -59,14 +59,9 @@ class Evenement
     /**
      * @var string
      *
-     * @ORM\Column(name="password", type="string", length=50, nullable=false)
+     * @ORM\Column(name="password", type="string", length=180, nullable=false)
      */
     private $password;
-
-    public function __toString()
-    {
-        return $this->getOccasion() . " du: " . $this->affichageDateTime() . " à: " . $this->getLieux();
-    }
 
     public function getId(): ?int
     {
@@ -133,19 +128,15 @@ class Evenement
         return $this;
     }
 
-    private function affichageDateTime()
-    {
-        return $this->date->format('d-m-Y');
-    }
-
     public function getPassword(): ?string
     {
         return $this->password;
     }
 
-    public function setPassword(?string $password)
+    public function setPassword(string $password): self
     {
         $this->password = $password;
+
         return $this;
     }
 }
