@@ -44,9 +44,7 @@
 			</tbody>
 		</tbody>
 	</table>
-	{{cpt}}
-	<button onclick="{{ {% set cpt = cpt + 1 %} }}">+</button>
-	<button onclick="{% set cpt = cpt + 0 %}">-</button>
+	{{ knp_pagination_render(musiques) }}
 </main>
 <aside>
 	{{form(form)}}

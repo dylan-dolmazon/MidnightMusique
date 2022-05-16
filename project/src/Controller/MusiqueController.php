@@ -5,7 +5,7 @@ namespace App\Controller;
 use App\Entity\Musique;
 use App\Form\MusiqueType;
 use Doctrine\ORM\EntityManagerInterface;
-use Doctrine\ORM\Tools\Pagination\Paginator;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -39,11 +39,15 @@ class MusiqueController extends AbstractController
         ]);
     }
 
-    public function showMusique(Request $request, ?int $page)
+    public function showMusique(Request $request, PaginatorInterface $paginator)
     {
-        $repository = $this->getDoctrine()->getRepository(Musique::class);
+        $donnees = $this->getDoctrine()->getRepository(Musique::class)->findAll();
 
-        $musiques = $repository->findAll();
+        $musiques = $paginator->paginate(
+            $donnees,
+            $request->query->getInt('page', 1),
+            10
+        );
 
         $form = $this->createFormBuilder()
             ->add('importance', ChoiceType::class, [
@@ -65,12 +69,18 @@ class MusiqueController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             // data is an array with "name", "email", and "message" keys
             $data = $form->getData();
-            $musiques = $repository->findBy(array($data['importance'] => $data['data']), array('id' => 'ASC'), 10);
+            $musiques = $this->getDoctrine()->getRepository(Musique::class)->findBy(array($data['importance'] => $data['data']), array('id' => 'ASC'), 10);
         }
 
         return $this->render('musique/catalogue.html.twig', [
             'musiques' => $musiques,
             'form' => $form->createView(),
         ]);
+    }
+
+    public function increment()
+    {
+        dump("coucou");
+        die;
     }
 }
