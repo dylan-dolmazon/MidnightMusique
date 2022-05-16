@@ -55,11 +55,10 @@
 							{% endif %}
 						{% endif %}
 					</div>
-					{% set cpt = cpt + 1 %}
 					{% if lists is defined %}
 						{% if lists[0] is defined %}
 							{% if lists[0].idEvenement.id == evenement.id %}
-								<div id="divlist">
+								<div id="divlist" {% if cpt is divisible by(2) %} class="listleft" {% else %} class="listright" {% endif %}>
 									<ul class="withoutdeco">
 										{% for  list in lists %}
 											<li>
@@ -87,6 +86,7 @@
 							{% endif %}
 						{% endif %}
 					{% endif %}
+					{% set cpt = cpt + 1 %}
 				{% endfor %}
 			</main>
 		{% endblock %}
