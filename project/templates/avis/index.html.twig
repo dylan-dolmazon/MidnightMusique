@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AvisController!
+{% endblock %}
+
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('assets/css/avis.css') }}"/>
+{% endblock %}
+
+{% block body %}
+	<main>
+		<!--This is the current testimonial-->
+		<div class="testimonial-container testimonial-active one">
+			<div class="testimonial-header"></div>
+			<div class="testimonial-body">
+				<h1>Nom Client</h1>
+				<h2>Occasion</h2>
+				<p>Avis de client</p>
+				<div class="stars">
+					<img {% if note >= 1 %} src="https://img.icons8.com/fluency/24/fa314a/star.png" {% else %} src="https://img.icons8.com/color/24/fa314a/star--v1.png" {% endif %} class=" fa fa-star gold"></img>
+                    <img {% if note >= 2 %} src="https://img.icons8.com/fluency/24/fa314a/star.png" {% else %} src="https://img.icons8.com/color/24/fa314a/star--v1.png" {% endif %} class=" fa fa-star gold"></img>
+                    <img {% if note >= 3 %} src="https://img.icons8.com/fluency/24/fa314a/star.png" {% else %} src="https://img.icons8.com/color/24/fa314a/star--v1.png" {% endif %} class=" fa fa-star gold"></img>
+                    <img {% if note >= 4 %} src="https://img.icons8.com/fluency/24/fa314a/star.png" {% else %} src="https://img.icons8.com/color/24/fa314a/star--v1.png" {% endif %} class=" fa fa-star gold"></img>
+                    <img {% if note >= 5 %} src="https://img.icons8.com/fluency/24/fa314a/star.png" {% else %} src="https://img.icons8.com/color/24/fa314a/star--v1.png" {% endif %} class=" fa fa-star gold"></img></div><div id="date">{{ date|date('d-m') }}
+                </div>
+            </div>
+        </div>
+        <div class="testimonial-container testimonial-active two">
+			<div class="testimonial-header"></div>
+			<div class="testimonial-body">
+				<h1>Nom Client</h1>
+				<h2>Occasion</h2>
+				<p>Avis de client</p>
+				<div class="stars">
+					<img {% if note >= 1 %} src="https://img.icons8.com/fluency/24/fa314a/star.png" {% else %} src="https://img.icons8.com/color/24/fa314a/star--v1.png" {% endif %} class=" fa fa-star gold"></img>
+                    <img {% if note >= 2 %} src="https://img.icons8.com/fluency/24/fa314a/star.png" {% else %} src="https://img.icons8.com/color/24/fa314a/star--v1.png" {% endif %} class=" fa fa-star gold"></img>
+                    <img {% if note >= 3 %} src="https://img.icons8.com/fluency/24/fa314a/star.png" {% else %} src="https://img.icons8.com/color/24/fa314a/star--v1.png" {% endif %} class=" fa fa-star gold"></img>
+                    <img {% if note >= 4 %} src="https://img.icons8.com/fluency/24/fa314a/star.png" {% else %} src="https://img.icons8.com/color/24/fa314a/star--v1.png" {% endif %} class=" fa fa-star gold"></img>
+                    <img {% if note >= 5 %} src="https://img.icons8.com/fluency/24/fa314a/star.png" {% else %} src="https://img.icons8.com/color/24/fa314a/star--v1.png" {% endif %} class=" fa fa-star gold"></img></div><div id="date">{{ date|date('d-m') }}
+                </div>
+            </div>
+        </div>
+        <div class="testimonial-container testimonial-active three">
+			<div class="testimonial-header"></div>
+			<div class="testimonial-body">
+				<h1>Nom Client</h1>
+				<h2>Occasion</h2>
+				<p>Avis de client</p>
+				<div class="stars">
+					<img {% if note >= 1 %} src="https://img.icons8.com/fluency/24/fa314a/star.png" {% else %} src="https://img.icons8.com/color/24/fa314a/star--v1.png" {% endif %} class=" fa fa-star gold"></img>
+                    <img {% if note >= 2 %} src="https://img.icons8.com/fluency/24/fa314a/star.png" {% else %} src="https://img.icons8.com/color/24/fa314a/star--v1.png" {% endif %} class=" fa fa-star gold"></img>
+                    <img {% if note >= 3 %} src="https://img.icons8.com/fluency/24/fa314a/star.png" {% else %} src="https://img.icons8.com/color/24/fa314a/star--v1.png" {% endif %} class=" fa fa-star gold"></img>
+                    <img {% if note >= 4 %} src="https://img.icons8.com/fluency/24/fa314a/star.png" {% else %} src="https://img.icons8.com/color/24/fa314a/star--v1.png" {% endif %} class=" fa fa-star gold"></img>
+                    <img {% if note >= 5 %} src="https://img.icons8.com/fluency/24/fa314a/star.png" {% else %} src="https://img.icons8.com/color/24/fa314a/star--v1.png" {% endif %} class=" fa fa-star gold"></img></div><div id="date">{{ date|date('d-m') }}
+                </div>
+            </div>
+        </div>
+        <div class="testimonial-container testimonial-active four">
+			<div class="testimonial-header"></div>
+			<div class="testimonial-body">
+				<h1>Nom Client</h1>
+				<h2>Occasion</h2>
+				<p>Avis de client</p>
+				<div class="stars">
+					<img {% if note >= 1 %} src="https://img.icons8.com/fluency/24/fa314a/star.png" {% else %} src="https://img.icons8.com/color/24/fa314a/star--v1.png" {% endif %} class=" fa fa-star gold"></img>
+                    <img {% if note >= 2 %} src="https://img.icons8.com/fluency/24/fa314a/star.png" {% else %} src="https://img.icons8.com/color/24/fa314a/star--v1.png" {% endif %} class=" fa fa-star gold"></img>
+                    <img {% if note >= 3 %} src="https://img.icons8.com/fluency/24/fa314a/star.png" {% else %} src="https://img.icons8.com/color/24/fa314a/star--v1.png" {% endif %} class=" fa fa-star gold"></img>
+                    <img {% if note >= 4 %} src="https://img.icons8.com/fluency/24/fa314a/star.png" {% else %} src="https://img.icons8.com/color/24/fa314a/star--v1.png" {% endif %} class=" fa fa-star gold"></img>
+                    <img {% if note >= 5 %} src="https://img.icons8.com/fluency/24/fa314a/star.png" {% else %} src="https://img.icons8.com/color/24/fa314a/star--v1.png" {% endif %} class=" fa fa-star gold"></img></div><div id="date">{{ date|date('d-m') }}
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock %}

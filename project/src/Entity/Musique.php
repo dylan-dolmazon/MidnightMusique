@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Musique
  *
- * @ORM\Table(name="musique")
+ * @ORM\Table(name="Musique")
  * @ORM\Entity
  */
 class Musique
@@ -31,13 +31,6 @@ class Musique
     /**
      * @var string
      *
-     * @ORM\Column(name="titre", type="string", length=255, nullable=false)
-     */
-    private $titre;
-
-    /**
-     * @var string
-     *
      * @ORM\Column(name="album", type="string", length=255, nullable=false)
      */
     private $album;
@@ -55,6 +48,13 @@ class Musique
      * @ORM\Column(name="style", type="string", length=255, nullable=false)
      */
     private $style;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="titre", type="string", length=180, nullable=false)
+     */
+    private $titre;
 
     public function getId(): ?int
     {
@@ -120,4 +120,6 @@ class Musique
 
         return $this;
     }
+
+
 }

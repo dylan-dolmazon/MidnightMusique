@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * ListMusique
  *
- * @ORM\Table(name="list_musique")
+ * @ORM\Table(name="List_musique", indexes={@ORM\Index(name="id_evenement", columns={"id_evenement"})})
  * @ORM\Entity
  */
 class ListMusique
@@ -22,6 +22,13 @@ class ListMusique
     private $id;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="nom_list", type="string", length=180, nullable=false)
+     */
+    private $nomList;
+
+    /**
      * @var \Evenement
      *
      * @ORM\ManyToOne(targetEntity="Evenement")
@@ -31,28 +38,9 @@ class ListMusique
      */
     private $idEvenement;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="nom_list", type="string", nullable=false)
-     */
-    private $nomList;
-
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getIdEvenement()
-    {
-        return $this->idEvenement;
-    }
-
-    public function setIdEvenement(Evenement $idEvenement): self
-    {
-        $this->idEvenement = $idEvenement;
-
-        return $this;
     }
 
     public function getNomList(): ?string
@@ -63,6 +51,18 @@ class ListMusique
     public function setNomList(string $nomList): self
     {
         $this->nomList = $nomList;
+
+        return $this;
+    }
+
+    public function getIdEvenement()
+    {
+        return $this->idEvenement;
+    }
+
+    public function setIdEvenement(?Evenement $idEvenement): self
+    {
+        $this->idEvenement = $idEvenement;
 
         return $this;
     }

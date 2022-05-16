@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Evenement
  *
- * @ORM\Table(name="evenement")
+ * @ORM\Table(name="Evenement")
  * @ORM\Entity
  */
 class Evenement
@@ -139,4 +139,6 @@ class Evenement
 
         return $this;
     }
+
+
 }

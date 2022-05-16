@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Appartient
  *
- * @ORM\Table(name="appartient", indexes={@ORM\Index(name="id_listmusique", columns={"id_list"}), @ORM\Index(name="id_musique", columns={"id_musique"})})
+ * @ORM\Table(name="Appartient", indexes={@ORM\Index(name="id_listmusique", columns={"id_list"}), @ORM\Index(name="id_musique", columns={"id_musique"})})
  * @ORM\Entity
  */
 class Appartient

@@ -1,0 +1,216 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,400i,700&display=swap");
+
+@media (min-width: 800px){
+    main {
+    display: grid;
+    grid-template-columns: 2;
+    grid-template-rows: 2;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+    }
+}
+
+@media (max-width: 800px){
+    main {
+    display: block;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+    }
+}
+
+.testimonial-container{
+    position:relative;
+}
+
+.testimonial-container{
+  width: 22rem;
+  height: 28rem;
+  background: #fff;
+  border-radius: 1.2rem;
+  overflow: hidden;
+}
+.testimonial-active {
+  z-index: 1;
+  box-shadow: 0.5rem 0.5rem 1rem rgba(51, 51, 51, 0.2),
+    0.5rem 0.5rem 1rem rgba(51, 51, 51, 0.2);
+}
+
+.testimonial-header {
+  height: 10rem;
+  background-image: linear-gradient(
+      to right,
+      rgba(204, 204, 204, 0.8),
+      rgba(255, 255, 255, 0.8)
+    ),
+    url(../images/donner_avis.jpeg);
+  background-size: cover;
+  background-position: cover;
+}
+
+.testimonial-avatar{
+  border-radius: 100%;
+  display: block;
+  margin: auto;
+  margin-top: -4rem;
+  border: 0.5rem solid #fff;
+  z-index: 100;
+}
+
+.testimonial-body {
+  padding: 0 1rem;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: #ef7c00;
+  display: inline-block;
+  border-bottom: solid #ef7c00 0.3px;
+  border-right: solid #ef7c00 0.3px;
+  border-radius: 10px;
+  padding-bottom: 7px;
+  padding-right: 7px;
+}
+
+h2 {
+    margin-left: 30px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    display: inline-block;
+  }
+
+p {
+  text-align: justify;
+  font-size: 1rem;
+  font-style: italic;
+}
+p i {
+  color: #f5cfa6;
+}
+
+.testimonial-footer{
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+span {
+  margin: 0.5rem;
+}
+
+span i {
+  border-radius: 100%;
+  padding: 0.5rem;
+  border: 0.1rem solid #ffb566;
+}
+
+.testimonial-active-animated {
+  animation: moveRight 1.5s ease-in-out;
+}
+
+.testimonial-inactive-animated {
+  animation: moveLeft 1.5s ease-in-out;
+}
+
+@keyframes moveRight {
+  0% {
+    transform: translateX(0);
+    box-shadow: none;
+  }
+  50% {
+    transform: translateX(-10rem);
+    box-shadow: none;
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes moveLeft {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+    z-index: 2;
+  }
+  50% {
+    transform: translateX(18rem) scale(0.96);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateX(0) scale(0.98);
+    opacity: 0.2;
+  }
+}
+
+
+#date {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    color: #ef7c00;
+    font-size: 1.3em;
+}
+
+.stars{
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+}
+@media (min-width: 800px){
+    .one {
+        grid-row: 1;
+        grid-column: 1;
+        margin-right: 20px;
+        margin-bottom: 20px;
+    }
+
+    .two {
+        grid-row: 1;
+        grid-column: 2;
+        margin-left: 20px;
+        margin-bottom: 20px;
+    }
+
+    .three {
+        grid-row: 2;
+        grid-column: 1;
+        margin-right: 20px;
+    }
+
+    .four {
+        grid-row: 2;
+        grid-column: 2;
+        margin-left: 20px;
+    }
+}
+
+@media (max-width: 800px){
+    .one {
+        display: block;
+        margin-top: 20px;
+    }
+
+    .two {
+        display: block;
+        margin-top: 20px;
+    }
+
+    .three {
+        display: block;
+        margin-top: 20px;
+    }
+
+    .four {
+        display: block;
+        margin-top: 20px;
+    }
+}

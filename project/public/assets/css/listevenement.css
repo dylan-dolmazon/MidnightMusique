@@ -114,11 +114,11 @@ body {
 }
 
 .container.left .icon {
-  right: 56px;
+  right: 0px;
 }
 
 .container.right .icon {
-  left: 56px;
+  left: 80px;
 }
 
 .container .content {

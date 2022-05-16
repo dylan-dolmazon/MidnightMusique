@@ -51,3 +51,7 @@ add_Appartient:
 dele_Musique:
   path: /deleteMusique/{id}
   controller: App\Controller\MusiqueController::deleteMusique
+
+show_Avis:
+  path: /avis
+  controller: App\Controller\AvisController::index
