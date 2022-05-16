@@ -13,62 +13,67 @@
 		<div class="testimonial-container testimonial-active one">
 			<div class="testimonial-header"></div>
 			<div class="testimonial-body">
-				<h1>Nom Client</h1>
-				<h2>Occasion</h2>
-				<p>Avis de client</p>
+				<h1>{{ avis[0].auteur }}</h1>
+				<h2>{{ avis[0].occasion }}</h2>
+				<p>{{avis[0].content}}</p>
 				<div class="stars">
-					<img {% if note >= 1 %} src="https://img.icons8.com/fluency/24/fa314a/star.png" {% else %} src="https://img.icons8.com/color/24/fa314a/star--v1.png" {% endif %} class=" fa fa-star gold"></img>
-                    <img {% if note >= 2 %} src="https://img.icons8.com/fluency/24/fa314a/star.png" {% else %} src="https://img.icons8.com/color/24/fa314a/star--v1.png" {% endif %} class=" fa fa-star gold"></img>
-                    <img {% if note >= 3 %} src="https://img.icons8.com/fluency/24/fa314a/star.png" {% else %} src="https://img.icons8.com/color/24/fa314a/star--v1.png" {% endif %} class=" fa fa-star gold"></img>
-                    <img {% if note >= 4 %} src="https://img.icons8.com/fluency/24/fa314a/star.png" {% else %} src="https://img.icons8.com/color/24/fa314a/star--v1.png" {% endif %} class=" fa fa-star gold"></img>
-                    <img {% if note >= 5 %} src="https://img.icons8.com/fluency/24/fa314a/star.png" {% else %} src="https://img.icons8.com/color/24/fa314a/star--v1.png" {% endif %} class=" fa fa-star gold"></img></div><div id="date">{{ date|date('d-m') }}
+					<img {% if avis[0].note >= 1 %} src="https://img.icons8.com/fluency/24/fa314a/star.png" {% else %} src="https://img.icons8.com/color/24/fa314a/star--v1.png" {% endif %} class=" fa fa-star gold"></img>
+                    <img {% if avis[0].note >= 2 %} src="https://img.icons8.com/fluency/24/fa314a/star.png" {% else %} src="https://img.icons8.com/color/24/fa314a/star--v1.png" {% endif %} class=" fa fa-star gold"></img>
+                    <img {% if avis[0].note >= 3 %} src="https://img.icons8.com/fluency/24/fa314a/star.png" {% else %} src="https://img.icons8.com/color/24/fa314a/star--v1.png" {% endif %} class=" fa fa-star gold"></img>
+                    <img {% if avis[0].note >= 4 %} src="https://img.icons8.com/fluency/24/fa314a/star.png" {% else %} src="https://img.icons8.com/color/24/fa314a/star--v1.png" {% endif %} class=" fa fa-star gold"></img>
+                    <img {% if avis[0].note >= 5 %} src="https://img.icons8.com/fluency/24/fa314a/star.png" {% else %} src="https://img.icons8.com/color/24/fa314a/star--v1.png" {% endif %} class=" fa fa-star gold"></img>
                 </div>
+                <div id="date">{{ avis[0].createdAt|date('d-m') }}</div>
             </div>
         </div>
         <div class="testimonial-container testimonial-active two">
 			<div class="testimonial-header"></div>
 			<div class="testimonial-body">
-				<h1>Nom Client</h1>
-				<h2>Occasion</h2>
-				<p>Avis de client</p>
+				<h1>{{ avis[1].auteur }}</h1>
+				<h2>{{ avis[1].occasion }}</h2>
+				<p>{{avis[1].content}}</p>
 				<div class="stars">
-					<img {% if note >= 1 %} src="https://img.icons8.com/fluency/24/fa314a/star.png" {% else %} src="https://img.icons8.com/color/24/fa314a/star--v1.png" {% endif %} class=" fa fa-star gold"></img>
-                    <img {% if note >= 2 %} src="https://img.icons8.com/fluency/24/fa314a/star.png" {% else %} src="https://img.icons8.com/color/24/fa314a/star--v1.png" {% endif %} class=" fa fa-star gold"></img>
-                    <img {% if note >= 3 %} src="https://img.icons8.com/fluency/24/fa314a/star.png" {% else %} src="https://img.icons8.com/color/24/fa314a/star--v1.png" {% endif %} class=" fa fa-star gold"></img>
-                    <img {% if note >= 4 %} src="https://img.icons8.com/fluency/24/fa314a/star.png" {% else %} src="https://img.icons8.com/color/24/fa314a/star--v1.png" {% endif %} class=" fa fa-star gold"></img>
-                    <img {% if note >= 5 %} src="https://img.icons8.com/fluency/24/fa314a/star.png" {% else %} src="https://img.icons8.com/color/24/fa314a/star--v1.png" {% endif %} class=" fa fa-star gold"></img></div><div id="date">{{ date|date('d-m') }}
+					<img {% if avis[1].note >= 1 %} src="https://img.icons8.com/fluency/24/fa314a/star.png" {% else %} src="https://img.icons8.com/color/24/fa314a/star--v1.png" {% endif %} class=" fa fa-star gold"></img>
+                    <img {% if avis[1].note >= 2 %} src="https://img.icons8.com/fluency/24/fa314a/star.png" {% else %} src="https://img.icons8.com/color/24/fa314a/star--v1.png" {% endif %} class=" fa fa-star gold"></img>
+                    <img {% if avis[1].note >= 3 %} src="https://img.icons8.com/fluency/24/fa314a/star.png" {% else %} src="https://img.icons8.com/color/24/fa314a/star--v1.png" {% endif %} class=" fa fa-star gold"></img>
+                    <img {% if avis[1].note >= 4 %} src="https://img.icons8.com/fluency/24/fa314a/star.png" {% else %} src="https://img.icons8.com/color/24/fa314a/star--v1.png" {% endif %} class=" fa fa-star gold"></img>
+                    <img {% if avis[1].note >= 5 %} src="https://img.icons8.com/fluency/24/fa314a/star.png" {% else %} src="https://img.icons8.com/color/24/fa314a/star--v1.png" {% endif %} class=" fa fa-star gold"></img>
                 </div>
+                <div id="date">{{ avis[1].createdAt|date('d-m') }}</div>
             </div>
         </div>
         <div class="testimonial-container testimonial-active three">
 			<div class="testimonial-header"></div>
 			<div class="testimonial-body">
-				<h1>Nom Client</h1>
-				<h2>Occasion</h2>
-				<p>Avis de client</p>
+				<h1>{{ avis[2].auteur }}</h1>
+				<h2>{{ avis[2].occasion }}</h2>
+				<p>{{avis[2].content}}</p>
 				<div class="stars">
-					<img {% if note >= 1 %} src="https://img.icons8.com/fluency/24/fa314a/star.png" {% else %} src="https://img.icons8.com/color/24/fa314a/star--v1.png" {% endif %} class=" fa fa-star gold"></img>
-                    <img {% if note >= 2 %} src="https://img.icons8.com/fluency/24/fa314a/star.png" {% else %} src="https://img.icons8.com/color/24/fa314a/star--v1.png" {% endif %} class=" fa fa-star gold"></img>
-                    <img {% if note >= 3 %} src="https://img.icons8.com/fluency/24/fa314a/star.png" {% else %} src="https://img.icons8.com/color/24/fa314a/star--v1.png" {% endif %} class=" fa fa-star gold"></img>
-                    <img {% if note >= 4 %} src="https://img.icons8.com/fluency/24/fa314a/star.png" {% else %} src="https://img.icons8.com/color/24/fa314a/star--v1.png" {% endif %} class=" fa fa-star gold"></img>
-                    <img {% if note >= 5 %} src="https://img.icons8.com/fluency/24/fa314a/star.png" {% else %} src="https://img.icons8.com/color/24/fa314a/star--v1.png" {% endif %} class=" fa fa-star gold"></img></div><div id="date">{{ date|date('d-m') }}
+					<img {% if avis[2].note >= 1 %} src="https://img.icons8.com/fluency/24/fa314a/star.png" {% else %} src="https://img.icons8.com/color/24/fa314a/star--v1.png" {% endif %} class=" fa fa-star gold"></img>
+                    <img {% if avis[2].note >= 2 %} src="https://img.icons8.com/fluency/24/fa314a/star.png" {% else %} src="https://img.icons8.com/color/24/fa314a/star--v1.png" {% endif %} class=" fa fa-star gold"></img>
+                    <img {% if avis[2].note >= 3 %} src="https://img.icons8.com/fluency/24/fa314a/star.png" {% else %} src="https://img.icons8.com/color/24/fa314a/star--v1.png" {% endif %} class=" fa fa-star gold"></img>
+                    <img {% if avis[2].note >= 4 %} src="https://img.icons8.com/fluency/24/fa314a/star.png" {% else %} src="https://img.icons8.com/color/24/fa314a/star--v1.png" {% endif %} class=" fa fa-star gold"></img>
+                    <img {% if avis[2].note >= 5 %} src="https://img.icons8.com/fluency/24/fa314a/star.png" {% else %} src="https://img.icons8.com/color/24/fa314a/star--v1.png" {% endif %} class=" fa fa-star gold"></img>
                 </div>
+                <div id="date">{{ avis[2].createdAt|date('d-m') }}</div>
             </div>
         </div>
         <div class="testimonial-container testimonial-active four">
 			<div class="testimonial-header"></div>
 			<div class="testimonial-body">
-				<h1>Nom Client</h1>
-				<h2>Occasion</h2>
-				<p>Avis de client</p>
+				<h1>{{ avis[3].auteur }}</h1>
+				<h2>{{ avis[3].occasion }}</h2>
+				<p>{{avis[3].content}}</p>
 				<div class="stars">
-					<img {% if note >= 1 %} src="https://img.icons8.com/fluency/24/fa314a/star.png" {% else %} src="https://img.icons8.com/color/24/fa314a/star--v1.png" {% endif %} class=" fa fa-star gold"></img>
-                    <img {% if note >= 2 %} src="https://img.icons8.com/fluency/24/fa314a/star.png" {% else %} src="https://img.icons8.com/color/24/fa314a/star--v1.png" {% endif %} class=" fa fa-star gold"></img>
-                    <img {% if note >= 3 %} src="https://img.icons8.com/fluency/24/fa314a/star.png" {% else %} src="https://img.icons8.com/color/24/fa314a/star--v1.png" {% endif %} class=" fa fa-star gold"></img>
-                    <img {% if note >= 4 %} src="https://img.icons8.com/fluency/24/fa314a/star.png" {% else %} src="https://img.icons8.com/color/24/fa314a/star--v1.png" {% endif %} class=" fa fa-star gold"></img>
-                    <img {% if note >= 5 %} src="https://img.icons8.com/fluency/24/fa314a/star.png" {% else %} src="https://img.icons8.com/color/24/fa314a/star--v1.png" {% endif %} class=" fa fa-star gold"></img></div><div id="date">{{ date|date('d-m') }}
+					<img {% if avis[3].note >= 1 %} src="https://img.icons8.com/fluency/24/fa314a/star.png" {% else %} src="https://img.icons8.com/color/24/fa314a/star--v1.png" {% endif %} class=" fa fa-star gold"></img>
+                    <img {% if avis[3].note >= 2 %} src="https://img.icons8.com/fluency/24/fa314a/star.png" {% else %} src="https://img.icons8.com/color/24/fa314a/star--v1.png" {% endif %} class=" fa fa-star gold"></img>
+                    <img {% if avis[3].note >= 3 %} src="https://img.icons8.com/fluency/24/fa314a/star.png" {% else %} src="https://img.icons8.com/color/24/fa314a/star--v1.png" {% endif %} class=" fa fa-star gold"></img>
+                    <img {% if avis[3].note >= 4 %} src="https://img.icons8.com/fluency/24/fa314a/star.png" {% else %} src="https://img.icons8.com/color/24/fa314a/star--v1.png" {% endif %} class=" fa fa-star gold"></img>
+                    <img {% if avis[3].note >= 5 %} src="https://img.icons8.com/fluency/24/fa314a/star.png" {% else %} src="https://img.icons8.com/color/24/fa314a/star--v1.png" {% endif %} class=" fa fa-star gold"></img>
                 </div>
+                <div id="date">{{ avis[3].createdAt|date('d-m') }}</div>
             </div>
         </div>
+        {{ knp_pagination_render(avis) }}
     </main>
 {% endblock %}

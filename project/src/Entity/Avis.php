@@ -29,6 +29,13 @@ class Avis
     private $occasion;
 
     /**
+     * @var int
+     *
+     * @ORM\Column(name="note", type="integer", nullable=false)
+     */
+    private $note;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="content", type="string", length=500, nullable=false)
@@ -98,6 +105,18 @@ class Avis
     public function setAuteur(string $auteur): self
     {
         $this->auteur = $auteur;
+
+        return $this;
+    }
+
+    public function getNote(): ?int
+    {
+        return $this->note;
+    }
+
+    public function setNote(string $note): self
+    {
+        $this->note = $note;
 
         return $this;
     }
