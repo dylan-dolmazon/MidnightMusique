@@ -69,7 +69,6 @@ class AppartientController extends AbstractController
         $repository = $this->getDoctrine()->getRepository(ListMusique::class);
 
         $list = $repository->find($id);
-
         $appartient->setIdList($list);
         $appartient->setIdMusique($musique);
         $appartient->setImportance($request->request->get('importance'));

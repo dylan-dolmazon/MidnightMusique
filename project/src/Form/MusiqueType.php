@@ -19,7 +19,6 @@ class MusiqueType extends AbstractType
             ->add('annee', NumberType::class)
             ->add('style')
             ->add('titre')
-            ->add('idListmusique')
             ->add('save', SubmitType::class);
     }
 

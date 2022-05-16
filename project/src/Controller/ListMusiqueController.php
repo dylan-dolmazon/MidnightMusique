@@ -61,9 +61,7 @@ class ListMusiqueController extends AbstractController
         };
 
         $repository = $this->getDoctrine()->getRepository(Evenement::class);
-        $evenement = $repository->findOneBy(array(
-            'id' => $id,
-        ));
+        $evenement = $repository->find($list->getIdEvenement());
 
         return $this->render('list_musique/show.html.twig', [
             'list' => $list,

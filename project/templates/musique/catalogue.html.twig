@@ -7,11 +7,26 @@
 {% endblock %}
 {% block body %}
 	{% set cpt = 0 %}
+	{% if app.session.get('connected') is defined%}
+		{% if app.session.get('connected') == true %}
+			{% set connected = true %}
+		{% endif %}
+	{% endif %}
 	<main>
 		<h2>Mon catalogue de musique</h2>
 		<table class="container">
 			<thead>
 				<tr class="notshadow">
+					{% if connected is defined %}
+						<th>
+							<h1></h1>
+						</th>
+						<th>
+							<h1>
+								<a href="{{ path('add_musique') }}"><img src="https://img.icons8.com/color/32/000000/plus--v1.png"/></a>
+							</h1>
+						</th>
+					{% endif %}
 					<th>
 						<h1>Titre</h1>
 					</th>
@@ -29,29 +44,30 @@
 					</th>
 				</tr>
 			</thead>
-			<tbody>
-				{% for cpt in cpt * 10 .. cpt * 10 + 9 %}
-					<tr>
-						{% if musiques[cpt] is defined %}
-							<td>{{musiques[cpt].titre}}</td>
-							<td>{{musiques[cpt].artist}}</td>
-							<td>{{musiques[cpt].album}}</td>
-							<td>{{musiques[cpt].annee}}</td>
-							<td>{{musiques[cpt].style}}</td>
-						{% endif %}
-					</tr>
-				{% endfor %}
-			</tbody>
-		</tbody>
-		<tfoot>
-			<tr class="notshadow">
-				<td>{{ knp_pagination_render(musiques) }}</td>
+		</tr>
+	</thead>
+	<tbody>
+		{% for cpt in cpt * 10 .. cpt * 10 + 9 %}
+			<tr>
+				{% if musiques[cpt] is defined %}
+					{% if connected is defined %}
+						<td class="ifConnected">
+							<a href="{{path('dele_Musique',{'id': musiques[cpt].id})}}"><img src="https://img.icons8.com/emoji/32/000000/cross-mark-button-emoji.png"/></a>
+						</td>
+						<!--<td class="ifConnected"><a href=""><img src="https://img.icons8.com/color/32/000000/pencil-tip.png"/></a></td>-->
+					{% endif %}
+					<td>{{musiques[cpt].titre}}</td>
+					<td>{{musiques[cpt].artist}}</td>
+					<td>{{musiques[cpt].album}}</td>
+					<td>{{musiques[cpt].annee}}</td>
+					<td>{{musiques[cpt].style}}</td>
+				{% endif %}
 			</tr>
-		</tfoot>
-	</table>
-
-</main>
-<aside>
-	{{form(form)}}
-	</aside>
-{% endblock %}
+		{% endfor %}
+	</tbody>
+</tbody>
+<tfoot>
+	<tr class="notshadow">
+		<td>{{ knp_pagination_render(musiques) }}</td>
+	</tr>
+</tfoot></table></main><aside>{{form(form)}}</aside>{% endblock %}

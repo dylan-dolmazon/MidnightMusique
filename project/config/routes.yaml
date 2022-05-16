@@ -35,7 +35,6 @@ logout:
 
 add_musique:
   path: /musique/add
-  methods: [GET]
   controller: App\Controller\MusiqueController::addMusique
 
 show_musique:
@@ -49,3 +48,7 @@ ask_password:
 add_Appartient:
   path: /addAppartient/{id}
   controller: App\Controller\AppartientController:addAppartient
+
+dele_Musique:
+  path: /deleteMusique/{id}
+  controller: App\Controller\MusiqueController::deleteMusique

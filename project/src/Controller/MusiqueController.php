@@ -31,7 +31,7 @@ class MusiqueController extends AbstractController
             }
             $entityManagerInterface->flush();
 
-            return $this->redirect($this->generateUrl('musique_add'));
+            return $this->redirect($this->generateUrl('add_musique'));
         }
 
         return $this->render('musique/index.html.twig', [
@@ -50,7 +50,7 @@ class MusiqueController extends AbstractController
         );
 
         $form = $this->createFormBuilder()
-            ->add('importance', ChoiceType::class, [
+            ->add('search', ChoiceType::class, [
                 'choices' => [
                     'artist' => 'artist',
                     'titre' => 'titre',
@@ -69,7 +69,15 @@ class MusiqueController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             // data is an array with "name", "email", and "message" keys
             $data = $form->getData();
-            $musiques = $this->getDoctrine()->getRepository(Musique::class)->findBy(array($data['importance'] => $data['data']), array('id' => 'ASC'), 10);
+
+            $donnees = $this->getDoctrine()->getRepository(Musique::class)->findBy(array($data['search'] => $data['data']), array('id' => 'ASC'));
+            $musiques = $paginator->paginate(
+                $donnees,
+                1,
+                count($donnees)
+            );
+
+            dump($musiques);
         }
 
         return $this->render('musique/catalogue.html.twig', [
@@ -78,9 +86,16 @@ class MusiqueController extends AbstractController
         ]);
     }
 
-    public function increment()
+    public function deleteMusique($id, EntityManagerInterface $entitymanager)
     {
-        dump("coucou");
-        die;
+        $toDelete = $this->getDoctrine()->getRepository(Musique::class)->find($id);
+        $entitymanager->remove($toDelete);
+        $entitymanager->flush();
+
+        return $this->redirect($this->generateUrl('show_musique'));
+    }
+
+    public function modificationMusique($id)
+    {
     }
 }
