@@ -22,9 +22,12 @@ class ListMusique
     private $id;
 
     /**
-     * @var int
+     * @var \Evenement
      *
-     * @ORM\Column(name="id_evenement", type="integer", nullable=false)
+     * @ORM\ManyToOne(targetEntity="Evenement")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_evenement", referencedColumnName="id")
+     * })
      */
     private $idEvenement;
 
@@ -40,12 +43,12 @@ class ListMusique
         return $this->id;
     }
 
-    public function getIdEvenement(): ?int
+    public function getIdEvenement()
     {
         return $this->idEvenement;
     }
 
-    public function setIdEvenement(int $idEvenement): self
+    public function setIdEvenement(Evenement $idEvenement): self
     {
         $this->idEvenement = $idEvenement;
 

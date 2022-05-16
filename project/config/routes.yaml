@@ -16,8 +16,7 @@ remove_evenement:
   controller: App\Controller\EvenementController::deleteEvenement
 
 add_liste:
-  path: /listmusique
-  methods: [GET]
+  path: /listmusique/add/{id}
   controller: App\Controller\ListMusiqueController::index
 
 show_ListMusique:
