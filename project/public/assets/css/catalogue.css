@@ -13,7 +13,7 @@
     display: inline-block;
  }
 
- h1 {
+h1 {
    font-size:2.6em; 
    font-weight: 300;
    line-height:1em;
@@ -30,11 +30,11 @@
  .container th h1 {
        font-weight: bold;
        font-size: 1em;
-   text-align: left;
+   text-align: center;
    color: black;
  }
  
- .container td {
+ .container thead,tbody td {
        font-weight: normal;
        font-size: 1em;
    -webkit-box-shadow: 0 2px 2px -2px #0E1119;
@@ -46,44 +46,44 @@
        text-align: left;
        overflow: hidden;
        width: 80%;
-       height: 100%;
+       height: fit-content;
        margin-right:  auto;
        margin-left: auto;
    display: table;
    padding: 0 0 8em 0;
  }
  
- .container th {
+ .container thead,tbody th {
     padding-bottom: 2%;
     padding-top: 2%;
     padding-left:1%;  
  }
 
- .container td {
+ .container thead,tbody td {
        padding-bottom: 2%;
        padding-top: 2%;
    padding-left:2%;  
  }
  
  /* Background-color of the odd rows */
- .container tr:nth-child(odd) {
+ .container thead,tbody tr:nth-child(odd) {
     background-color: #F3F3F3;
     border-radius: 15px;
  }
  
  /* Background-color of the even rows */
- .container tr:nth-child(even) {
+ .container thead,tbody tr:nth-child(even) {
     background-color: #F3F3F3;
     border-radius: 15px;
  }
  
- .container th {
+ .container thead,tbody th {
        background-color: white;
  }
  
  /*.container td:first-child { }*/
 
- .container tr:hover:not(#notshadow) {
+ .container tr:hover:not(.notshadow) {
    background-color: #FFFFFF;
    color: #403E10;
    font-weight: bold;
@@ -96,12 +96,12 @@
        transition-property: all;
    transition-timing-function: line;
  }
- 
+
  @media (max-width: 800px) {
- .container td:nth-child(4),
- .container th:nth-child(4) { display: none; }
- .container td:nth-child(5),
- .container th:nth-child(5) { display: none; }
+ .container thead,tbody td:nth-child(4),
+ .container thead,tbody th:nth-child(4) { display: none; }
+ .container thead,tbody td:nth-child(5),
+ .container thead,tbody th:nth-child(5) { display: none; }
  }
 
  aside {
@@ -134,4 +134,37 @@ tbody td:last-child
 
 .container {
     border-spacing: 0 10px;
+}
+
+.pagination {
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+}
+
+.pagination span{
+    margin: 5px 5px 5px 5px;
+    
+}
+
+.pagination a {
+    text-decoration: none;
+    color: whitesmoke;
+    padding: 8px 8px 8px 8px;
+    border: solid black 0.8px;
+    background-color: #202020;
+    border-radius: 7px;
+}
+
+.pagination .current {
+    color: whitesmoke;
+    padding: 8px 8px 8px 8px;
+    border: solid black 0.8px;
+    border-radius: 7px;
+    background-color: rgb(70, 62, 62);
+}
+
+tfoot td{
+    margin-left: auto;
+    margin-right: auto;
 }

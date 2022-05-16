@@ -11,7 +11,7 @@
 		<h2>Mon catalogue de musique</h2>
 		<table class="container">
 			<thead>
-				<tr id="notshadow">
+				<tr class="notshadow">
 					<th>
 						<h1>Titre</h1>
 					</th>
@@ -43,8 +43,13 @@
 				{% endfor %}
 			</tbody>
 		</tbody>
+		<tfoot>
+			<tr class="notshadow">
+				<td>{{ knp_pagination_render(musiques) }}</td>
+			</tr>
+		</tfoot>
 	</table>
-	{{ knp_pagination_render(musiques) }}
+
 </main>
 <aside>
 	{{form(form)}}
