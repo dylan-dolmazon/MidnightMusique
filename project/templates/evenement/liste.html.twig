@@ -7,12 +7,12 @@
 	<link rel="stylesheet" href="{{ asset('assets/css/password.css') }}"/>
 {% endblock %}
 {% block body %}
-	{% for message in app.flashes('notification') %}
-		<div class="alert alert-info alert-dismissible fade show">
-			{{ message }}
-		</div>
-	{% endfor %}
 	<main>
+		{% for message in app.flashes('notification') %}
+			<div class="alert alert-info alert-dismissible fade show">
+				{{ message }}
+			</div>
+		{% endfor %}
 		{% set cpt = 0 %}
 		{% for evenement in evenements %}
 			<div class="timeline">
