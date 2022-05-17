@@ -102,15 +102,27 @@ h1 {
  .container thead,tbody td:not(.ifConnected):nth-child(5),
  .container thead,tbody th:nth-child(5) { display: none; }
  .container .ifConnected{display: none;}
+
+    
  }
 
- aside {
-    position: relative;
-    top: 280px;
-    left: 10px;
-    display: inline-block;
+ @media (max-width: 1350px) {
+    aside {
+        display: block;
+        width: 150px;
+        margin-left: auto;
+        margin-right: auto;
+    }
  }
 
+ @media (min-width: 1350px) {
+    aside {
+        position: relative;
+        top: 280px;
+        left: 10px;
+        display: inline-block;
+    }
+ }
  tbody td
 {
     border-top: 1px solid black;
