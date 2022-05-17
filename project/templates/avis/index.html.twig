@@ -14,7 +14,13 @@
             {% for avi in avis %}
                 <!--This is the current testimonial-->
                 <div class="testimonial-container testimonial-active" {% if cpt == 0 %} id="one" {% elseif cpt == 1 %} id="two" {% elseif cpt == 2 %} id="three" {% elseif cpt == 3 %} id="four" {% elseif cpt == 4 %} id="five" {% endif %}>
-                    <div class="testimonial-header"></div>
+                    <div class="testimonial-header">
+                    {% if app.session.get('connected') is defined%}
+                        {% if app.session.get('connected') == true %}
+                            <a href="{{ path('dele_Avis',{'id': avi.id}) }}"><img src="https://img.icons8.com/emoji/32/000000/cross-mark-button-emoji.png"/></a>
+                        {% endif %}
+				    {% endif %}
+                    </div>
                     <div class="testimonial-body">
                         <h1>{{ avi.auteur }}</h1>
                         <h2>{{ avi.occasion }}</h2>
@@ -31,7 +37,7 @@
                 </div>
                 {% set cpt = cpt + 1 %}
             {% endfor %}
-        <div class="testimonial-container testimonial-active" id="six">
+        <div class="testimonial-container testimonial-active" {% if cpt == 0 %} id="one" {% elseif cpt == 1 %} id="two" {% elseif cpt == 2 %} id="three" {% elseif cpt == 3 %} id="four" {% elseif cpt == 4 %} id="five" {% elseif cpt == 5 %} id="six" {% endif %}>
             <div class="testimonial-header-add"></div>
             <div class="testimonial-body">
                 {{form_start(form)}}

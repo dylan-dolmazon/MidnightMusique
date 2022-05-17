@@ -15,15 +15,6 @@ class AvisController extends AbstractController
 {
     public function index(PaginatorInterface $paginator, Request $request, ?Avis $datas, EntityManagerInterface $entityManagerInterface): Response
     {
-
-        $donnees = $this->getDoctrine()->getRepository(Avis::class)->findBy(array(), array('createdAt' => 'ASC'));
-
-        $avis = $paginator->paginate(
-            $donnees,
-            $request->query->getInt('page', 1),
-            5
-        );
-
         if(!$datas){
             $datas = new Avis();
         }
@@ -39,16 +30,35 @@ class AvisController extends AbstractController
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             if (!$datas->getId()) {
-                dump($datas);
-                die;
+                $datas->setCreatedAt(new \DateTime('now'));
                 $entityManagerInterface->persist($datas);
             }
             $entityManagerInterface->flush();
+            $datas = new Avis();
         }
+
+        $donnees = $this->getDoctrine()->getRepository(Avis::class)->findBy(array(), array('createdAt' => 'DESC'));
+
+        $avis = $paginator->paginate(
+            $donnees,
+            $request->query->getInt('page', 1),
+            5
+        );
 
         return $this->render('avis/index.html.twig', [
             'avis' => $avis,
             'form' => $form->createView(),
         ]);
+    }
+
+    public function deleteAvis($id, EntityManagerInterface $entityManagerInterface){
+
+        $toDel = $this->getDoctrine()->getRepository(Avis::class)->find($id);
+
+        $entityManagerInterface->remove($toDel);
+        $entityManagerInterface->flush();
+
+        return $this->redirect($this->generateUrl('show_Avis'));
+
     }
 }

@@ -29,13 +29,44 @@
 						<a href="{{path('add_evenement')}}">coucou</a>
 					{% endif %}
 				{% endif %}
+				<a id="popupbutton" class="open-button" onclick="openForm()">Open Form</a>
+			</div>
+			<div class="form-popup" id="myForm">
+			<form action="/action_page.php" class="form-container">
+				<h1>Envoyez moi Email</h1>
+
+				<label for="email"><b>Email</b></label>
+				<input type="text" placeholder="Saisissez votre Email" name="email" required>
+
+				<label for="name"><b>Nom</b></label>
+				<input type="text" placeholder="Renseignez votre nom" name="name" required>
+
+				<label for="sujet"><b>Sujet</b></label>
+				<input type="text" placeholder="Quel est le sujet de votre message" name="sujet" required>
+
+				<label for="content"><b>Message</b></label>
+				<textarea type="text" placeholder="Contenu de votre message" name="content" required></textarea>
+
+				<button type="submit" class="btn button-52">Envoyer</button>
+				<button type="button" class="btn cancel" onclick="closeForm()">Fermer</button>
+			</form>
 			</div>
 		</nav>
 		{% block body %}{% endblock %}
+		<script>
+		function openForm() {
+			document.getElementById("myForm").style.display = "block";
+			document.getElementById("popupbutton").style.display = "none";
+		}
+		function closeForm() {
+			document.getElementById("myForm").style.display = "none";
+			document.getElementById("popupbutton").style.display = "inline";
+		}
+		</script>
 	</body>
 	<footer>
 		<a target="_blank" href="https://icons8.com/icon/80536/alliances">Alliances</a>
 		icon by
 		<a target="_blank" href="https://icons8.com">Icons8</a>
 	</footer>
-</html></body></html>
+</html>

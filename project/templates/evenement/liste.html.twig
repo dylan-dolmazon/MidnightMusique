@@ -5,7 +5,6 @@
 {% block stylesheets %}
 	<link rel="stylesheet" href="{{ asset('assets/css/listevenement.css') }}"/>
 	<link rel="stylesheet" href="{{ asset('assets/css/password.css') }}"/>
-
 {% endblock %}
 {% block body %}
 	{% for message in app.flashes('notification') %}
@@ -89,8 +88,4 @@
 					{% set cpt = cpt + 1 %}
 				{% endfor %}
 			</main>
-		{% endblock %}
-
-		{% block javascripts %}
-			<script src="{{ asset('assets/js/password.js') }}"></script>
 		{% endblock %}

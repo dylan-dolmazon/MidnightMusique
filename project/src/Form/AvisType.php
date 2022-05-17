@@ -23,7 +23,7 @@ class AvisType extends AbstractType
             ))
             ->add('content',TextareaType::class,array (
                 'attr' => array(
-                'placeholder' => 'Occasion'
+                'placeholder' => "Dites moi ce que vous avez pensé(e) de l'animation. Je vous remercie"
                 )
             ))
             ->add('auteur',TextType::class,array (

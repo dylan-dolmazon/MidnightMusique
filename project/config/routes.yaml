@@ -55,3 +55,7 @@ dele_Musique:
 show_Avis:
   path: /avis
   controller: App\Controller\AvisController::index
+
+dele_Avis:
+  path: /avis/del/{id}
+  controller: App\Controller\AvisController::deleteAvis
