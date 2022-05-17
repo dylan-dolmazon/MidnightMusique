@@ -1,0 +1,119 @@
+form {
+    background-color: #15172b;
+    border-radius: 20px;
+    box-sizing: border-box;
+    height: 500px;
+    padding: 20px;
+    width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+  }
+  
+  form .title {
+    color: #eee;
+    font-family: sans-serif;
+    font-size: 36px;
+    font-weight: 600;
+    margin-top: 30px;
+  }
+  
+  form .subtitle {
+    color: #eee;
+    font-family: sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 10px;
+  }
+  
+  form .input-container {
+    height: 50px;
+    position: relative;
+    width: 100%;
+  }
+  
+  form .ic1 {
+    margin-top: 40px;
+  }
+  
+  form .ic2 {
+    margin-top: 30px;
+  }
+  
+  form input {
+    background-color: #303245;
+    border-radius: 12px;
+    border: 0;
+    box-sizing: border-box;
+    color: #eee;
+    font-size: 18px;
+    height: 100%;
+    outline: 0;
+    padding: 4px 20px 0;
+    width: 100%;
+  }
+  
+  form .cut {
+    background-color: #15172b;
+    border-radius: 10px;
+    height: 20px;
+    left: 20px;
+    position: absolute;
+    top: -20px;
+    transform: translateY(0);
+    transition: transform 200ms;
+    width: 76px;
+  }
+  
+  form .cut-short {
+    width: 50px;
+  }
+  
+  form input:focus ~ .cut,
+  form input:not(:placeholder-shown) ~ .cut {
+    transform: translateY(8px);
+  }
+  
+  form label {
+    color: #65657b;
+    font-family: sans-serif;
+    left: 20px;
+    line-height: 14px;
+    pointer-events: none;
+    position: absolute;
+    transform-origin: 0 50%;
+    transition: transform 200ms, color 200ms;
+    top: 20px;
+  }
+  
+  form input:focus ~ label,
+  form input:not(:placeholder-shown) ~ label {
+    transform: translateY(-30px) translateX(10px) scale(0.75);
+  }
+  
+  form input:not(:placeholder-shown) ~ label {
+    color: #808097;
+  }
+  
+  form input:focus ~ label {
+    color: #dc2f55;
+  }
+  
+  form button {
+    background-color: #08d;
+    border-radius: 12px;
+    border: 0;
+    box-sizing: border-box;
+    color: #eee;
+    cursor: pointer;
+    font-size: 18px;
+    height: 50px;
+    margin-top: 38px;
+    text-align: center;
+    width: 100%;
+  }
+  
+  form button:active {
+    background-color: #06b;
+  }
+  

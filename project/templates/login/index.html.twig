@@ -4,6 +4,11 @@
 {% block title %}LoginController
 {% endblock %}
 
+{% block stylesheets %}
+		<link rel="stylesheet" href="{{ asset('assets/css/login.css') }}">
+
+{% endblock %}
+
 {% block body %}
 	<main>
 		{% for message in app.flashes('notification') %}
@@ -11,6 +16,19 @@
 				{{ message }}
 			</div>
 		{% endfor %}
-		{{form(form)}}
+		{{form_start(form)}}
+			<div class="title">Bonjour</div>
+      		<div class="subtitle">Jean-Noel vous pouvez vous connecter</div>
+      		<div class="input-container ic1">
+				{{form_widget(form.username)}}
+				<div class="cut"></div>
+				{{form_label(form.username)}}
+			</div>
+			 <div class="input-container ic2">
+			 	{{form_widget(form.password)}}
+					<div class="cut"></div>
+				{{form_label(form.password)}}
+			</div>
+		{{form_end(form)}}
 		</main>
 	{% endblock %}
