@@ -6,21 +6,18 @@
 	<link rel="stylesheet" href="{{ asset('assets/css/catalogue.css') }}"/>
 {% endblock %}
 {% block body %}
-	{% set cpt = 0 %}
-	{% if app.session.get('connected') is defined%}
-		{% if app.session.get('connected') == true %}
-			{% set connected = true %}
-		{% endif %}
-	{% endif %}
 	<main>
+		{% set cpt = 0 %}
+		{% if app.session.get('connected') is defined%}
+			{% if app.session.get('connected') == true %}
+				{% set connected = true %}
+			{% endif %}
+		{% endif %}
 		<h2>Mon catalogue de musique</h2>
 		<table class="container">
 			<thead>
 				<tr class="notshadow">
 					{% if connected is defined %}
-						<th>
-							<h1></h1>
-						</th>
 						<th>
 							<h1>
 								<a href="{{ path('add_musique') }}"><img src="https://img.icons8.com/color/32/000000/plus--v1.png"/></a>

@@ -5,9 +5,12 @@
 {% endblock %}
 
 {% block body %}
-	{% for message in app.flashes('notification') %}
-		<div class="alert alert-info alert-dismissible fade show">
-			{{ message }}
-		</div>
-	{% endfor %}
-	{{form(form)}}{% endblock %}
+	<main>
+		{% for message in app.flashes('notification') %}
+			<div class="alert alert-info alert-dismissible fade show">
+				{{ message }}
+			</div>
+		{% endfor %}
+		{{form(form)}}
+		</main>
+	{% endblock %}

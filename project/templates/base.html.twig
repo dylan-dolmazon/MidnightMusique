@@ -12,61 +12,123 @@
 		{% block stylesheets %}{% endblock %}
 		<link rel="stylesheet" href="{{ asset('assets/css/navbar.css') }}">
 		{% block javascripts %}
+			<script src="https://kit.fontawesome.com/1ac4abec3a.js" crossorigin="anonymous"></script>
 			{{ encore_entry_script_tags('app') }}
 		{% endblock %}
 	</head>
-	<body>
-		<!-- navbar from: https://codepen.io/raphaelgoetter/pen/mVpdYV?editors=110 -->
-		<nav id="navigation" role="navigation">
-			<input type="checkbox" id="toggle-nav" aria-label="open/close navigation">
-			<label for="toggle-nav" class="nav-button"></label>
-			<div class="nav-inner">
-				<img id="logo" src="{{asset('assets/images/logo.png')}}" alt="logo de l'entreprise">
-				<a href="{{path('show_evenement')}}">Evenement</a>
-				<a href="{{path('show_musique')}}">Musique</a>
-				{% if app.session.get('connected') is defined%}
-					{% if app.session.get('connected') == true %}
-						<a href="{{path('add_evenement')}}">coucou</a>
-					{% endif %}
-				{% endif %}
-				<a id="popupbutton" class="open-button" onclick="openForm()">Open Form</a>
+	<header>
+		<nav>
+			<img id="logo" src="{{asset('assets/images/logo.png')}}" alt="logo de l'entreprise">
+			<div id="mySidenav" class="sidenav">
+				<a id="closeBtn" href="#" class="close">×</a>
+				<ul>
+					<li><a id="one"href="{{path('show_evenement')}}">Evenement</a></li>
+					<li><a id="two"href="{{path('show_musique')}}">Catalogue</a></li>
+					<li><a id="three"href="{{path('show_Avis')}}">Avis</a></li>
+					<li><a
+						{% if app.session.get('connected') == true %}
+							{% if app.session.get('connected')is defined %} 
+								href="{{path('add_evenement')}}"
+							{% endif %}
+						{% else %} 
+							class="button disabled"
+							href="#"
+						{% endif %} 
+						id="four">ajout Evenement</a>
+					</li>
+				</ul>
 			</div>
-			<div class="form-popup" id="myForm">
-			<form action="/action_page.php" class="form-container">
-				<h1>Envoyez moi Email</h1>
-
-				<label for="email"><b>Email</b></label>
-				<input type="text" placeholder="Saisissez votre Email" name="email" required>
-
-				<label for="name"><b>Nom</b></label>
-				<input type="text" placeholder="Renseignez votre nom" name="name" required>
-
-				<label for="sujet"><b>Sujet</b></label>
-				<input type="text" placeholder="Quel est le sujet de votre message" name="sujet" required>
-
-				<label for="content"><b>Message</b></label>
-				<textarea type="text" placeholder="Contenu de votre message" name="content" required></textarea>
-
-				<button type="submit" class="btn button-52">Envoyer</button>
-				<button type="button" class="btn cancel" onclick="closeForm()">Fermer</button>
-			</form>
-			</div>
+			<a href="#" id="openBtn">
+				<span class="burger-icon">
+					<span></span>
+					<span></span>
+					<span></span>
+				</span>
+			</a>
 		</nav>
-		{% block body %}{% endblock %}
-		<script>
-		function openForm() {
-			document.getElementById("myForm").style.display = "block";
-			document.getElementById("popupbutton").style.display = "none";
-		}
-		function closeForm() {
-			document.getElementById("myForm").style.display = "none";
-			document.getElementById("popupbutton").style.display = "inline";
-		}
-		</script>
-	</body>
-	<footer>
-		<a target="_blank" href="https://icons8.com/icon/80536/alliances">Alliances</a>
-		icon by
-		<a target="_blank" href="https://icons8.com">Icons8</a>
+	</header>
+	{% block body %}{% endblock %}
+	<footer class="footer-distributed">
+
+		<div class="footer-left">
+
+			<h3>Midnight<span>Musique</span>
+			</h3>
+
+			<p class="footer-links">
+				<a class="link-1" href="{{path('show_evenement')}}">Evenement</a>
+
+				<a href="{{path('show_musique')}}">Catalogue</a>
+
+				<a href="{{path('show_Avis')}}">Avis</a>
+
+			</p>
+
+			<p class="footer-company-name">MidnightMusique © 2022</p>
+		</div>
+
+		<div class="footer-center">
+
+			<div>
+				<i class="fa fa-map-marker"></i>
+				<p>
+					<span>Le Triadour</span>
+					43260, Saint-Hostien</p>
+			</div>
+
+			<div>
+				<i class="fa fa-phone"></i>
+				<p>06-71-78-74-75</p>
+			</div>
+
+			<div>
+				<i class="fa fa-envelope"></i>
+				<p>
+					<a href="mailto:support@company.com">midnightmusique@yahoo.com</a>
+				</p>
+			</div>
+
+		</div>
+
+		<div class="footer-right">
+
+			<p class="footer-company-about">
+				<span>A Propos de MidnightMusique</span>
+				Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet.
+			</p>
+
+			<div class="footer-icons">
+
+				<a target="_blank" href="https://www.facebook.com/pages/category/DJ/Midnight-Musique-110102317280430/">
+					<i class="fa fa-facebook"></i>
+				</a>
+				<a target="_blank" href="https://www.google.com/search?q=Midnight+Musique%2C+Le+Triadour%2C+Saint-Hostien&rlz=1C5CHFA_enFR1000FR1000&ei=BKmDYvibGurh7_UPyYSVyAE&oq=Midnight+musique+sa&gs_lcp=Cgdnd3Mtd2l6EAMYADICCCY6BwgAEEcQsAM6BQgAEIAEOgYIABAWEB5KBAhBGABKBAhGGABQmRVYnR9gvCpoAnABeACAAWeIAZwFkgEDNi4xmAEAoAEByAEIwAEB&sclient=gws-wiz">
+					<i class="fa fa-google"></i>
+				</a>
+				<a target="_blank" href="https://www.pagesjaunes.fr/pros/60239354">
+					<i class="fa-solid fa-address-book"></i>
+				</a>
+			</div>
+
+		</div>
+
 	</footer>
+	<script>
+		var sidenav = document.getElementById("mySidenav");
+var openBtn = document.getElementById("openBtn");
+var closeBtn = document.getElementById("closeBtn");
+
+openBtn.onclick = openNav;
+closeBtn.onclick = closeNav;
+
+/* Set the width of the side navigation to 250px */
+function openNav() {
+sidenav.classList.add("active");
+}
+
+/* Set the width of the side navigation to 0 */
+function closeNav() {
+sidenav.classList.remove("active");
+}
+	</script>
 </html>

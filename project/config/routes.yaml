@@ -59,3 +59,8 @@ show_Avis:
 dele_Avis:
   path: /avis/del/{id}
   controller: App\Controller\AvisController::deleteAvis
+
+
+add_Email:
+  path: /contact
+  controller: App\Controller\ContactController::index

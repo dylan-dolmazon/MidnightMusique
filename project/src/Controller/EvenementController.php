@@ -39,8 +39,11 @@ class EvenementController extends AbstractController
 
         $form = $this->createForm(EvenementType::class, $evenement);
 
-        $form->add('save', SubmitType::class);
-        $form->add('reset', ResetType::class);
+        $form->add('save', SubmitType::class, array(
+            'attr' => array(
+                'class' => 'glow-on-hover'
+            )
+        ));
 
         $form->handleRequest($request);
         if ($form->isSubmitted()) {
