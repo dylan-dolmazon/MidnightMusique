@@ -148,13 +148,16 @@ tbody td:last-child
 .pagination {
     margin-left: auto;
     margin-right: auto;
-    width: fit-content;
 }
 
 .pagination span{
     margin: 5px 5px 5px 5px;
-    
 }
+
+.pagination li {
+  list-style: none;
+  display: inline-block;
+} 
 
 .pagination a {
     text-decoration: none;
@@ -165,17 +168,22 @@ tbody td:last-child
     border-radius: 7px;
 }
 
-.pagination .current {
-    color: whitesmoke;
+.pagination li:not(.active):hover a{
+  background-color: whitesmoke;
+  color: #202020;
+}
+
+.pagination .active a {
+  text-decoration: none;
+    color: #4dacaa;
     padding: 8px 8px 8px 8px;
     border: solid black 0.8px;
     border-radius: 7px;
-    background-color: rgb(70, 62, 62);
+    background-color: whitesmoke;
 }
 
 tfoot td{
-    margin-left: auto;
-    margin-right: auto;
+    text-align: center;
 }
 
 .ifConnected{

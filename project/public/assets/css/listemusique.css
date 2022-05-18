@@ -7,10 +7,7 @@
  @charset "UTF-8";
  @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
 
- main {
-    width: 75%;
-    display: inline-block;
- }
+
 
  h1 {
     font-size:2.6em; 
@@ -106,9 +103,15 @@
     border: solid #4dacaa 0.5px;
     border-radius: 15px;
     margin-top: 5%;
-    margin-right: 5%;
+    margin-left: auto;
+    margin-right: auto;
     padding: 8px 8px 8px 8px;
     margin-bottom: 5%;
+ }
+
+ main {
+    width: 100%;
+    display: block;
  }
 
 }
@@ -123,6 +126,11 @@
      margin-right: 5%;
      padding: 8px 8px 8px 8px;
   }
+
+  main {
+    width: 75%;
+    display: inline-block;
+ }
 }
   tbody td
  {
@@ -288,16 +296,20 @@ aside #animera {
 	color:#fff;
 }
 
+
 .pagination {
     margin-left: auto;
     margin-right: auto;
-    width: fit-content;
 }
 
 .pagination span{
     margin: 5px 5px 5px 5px;
-    
 }
+
+.pagination li {
+  list-style: none;
+  display: inline-block;
+} 
 
 .pagination a {
     text-decoration: none;
@@ -308,15 +320,20 @@ aside #animera {
     border-radius: 7px;
 }
 
-.pagination .current {
-    color: whitesmoke;
+.pagination li:not(.active):hover a{
+  background-color: whitesmoke;
+  color: #202020;
+}
+
+.pagination .active a {
+  text-decoration: none;
+    color: #4dacaa;
     padding: 8px 8px 8px 8px;
     border: solid black 0.8px;
     border-radius: 7px;
-    background-color: rgb(70, 62, 62);
+    background-color: whitesmoke;
 }
 
 tfoot td{
-    margin-left: auto;
-    margin-right: auto;
+    text-align: center;
 }

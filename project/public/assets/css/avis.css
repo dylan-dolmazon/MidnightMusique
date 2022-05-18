@@ -56,7 +56,7 @@
 .testimonial-header {
   height: 10rem;
   background-image: 
-    url(../images/remerciement.jpeg.crdownload);
+    url(../images/remerciement.jpeg);
   background-size: cover;
   background-position: cover;
 }
@@ -228,6 +228,11 @@ p, #content {
 }
 
 @media (max-width: 800px){
+
+  .testimonial-container{
+    margin: auto;
+  }
+
     #one {
         display: block;
         margin-top: 20px;
@@ -313,14 +318,6 @@ p, #content {
   }
 }
 
-#pagination {
-
-  margin-top: 50px;
-  display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .glow-on-hover {
   width: 220px;
   height: 50px;
@@ -379,4 +376,47 @@ p, #content {
   0% { background-position: 0 0; }
   50% { background-position: 400% 0; }
   100% { background-position: 0 0; }
+}
+
+
+.pagination {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.pagination span{
+  margin: 5px 5px 5px 5px;
+}
+
+.pagination li {
+list-style: none;
+display: inline-block;
+} 
+
+.pagination a {
+  text-decoration: none;
+  color: whitesmoke;
+  padding: 8px 8px 8px 8px;
+  border: solid black 0.8px;
+  background-color: #202020;
+  border-radius: 7px;
+}
+
+.pagination li:not(.active):hover a{
+background-color: whitesmoke;
+color: #202020;
+}
+
+.pagination .active a {
+text-decoration: none;
+  color: #4dacaa;
+  padding: 8px 8px 8px 8px;
+  border: solid black 0.8px;
+  border-radius: 7px;
+  background-color: whitesmoke;
+}
+
+tfoot td{
+  text-align: center;
 }

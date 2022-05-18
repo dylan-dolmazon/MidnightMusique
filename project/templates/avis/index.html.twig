@@ -37,17 +37,18 @@
                 </div>
                 {% set cpt = cpt + 1 %}
             {% endfor %}
-        <div class="testimonial-container testimonial-active" {% if cpt == 0 %} id="one" {% elseif cpt == 1 %} id="two" {% elseif cpt == 2 %} id="three" {% elseif cpt == 3 %} id="four" {% elseif cpt == 4 %} id="five" {% elseif cpt == 5 %} id="six" {% endif %}>
-            <div class="testimonial-header-add"></div>
-            <div class="testimonial-body">
-                {{form_start(form)}}
-                <div id="auteur">{{form_widget(form.auteur)}}</div>
-                <div id="occasion">{{form_widget(form.occasion)}}</div>
-                <div id="content">{{form_widget(form.content)}}</div>
-                <div id="note">{{form_widget(form.note)}}</div>
-                <div id="save">{{form_end(form)}}</div>
+            <div class="testimonial-container testimonial-active" {% if cpt == 0 %} id="one" {% elseif cpt == 1 %} id="two" {% elseif cpt == 2 %} id="three" {% elseif cpt == 3 %} id="four" {% elseif cpt == 4 %} id="five" {% elseif cpt == 5 %} id="six" {% endif %}>
+                <div class="testimonial-header-add"></div>
+                <div class="testimonial-body">
+                    {{form_start(form)}}
+                    <div id="auteur">{{form_widget(form.auteur)}}</div>
+                    <div id="occasion">{{form_widget(form.occasion)}}</div>
+                    <div id="content">{{form_widget(form.content)}}</div>
+                    <div id="note">{{form_widget(form.note)}}</div>
+                    <div id="save">{{form_end(form)}}</div>
+                </div>
             </div>
         </div>
-        <div id="pagination">{{ knp_pagination_render(avis) }}</div>
+        <div class="pagination">{{ knp_pagination_render(avis) }}</div>
     </main>
 {% endblock %}
