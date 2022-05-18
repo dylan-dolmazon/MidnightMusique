@@ -3,8 +3,19 @@
 {% block title %}Hello ListMusiqueController!
 {% endblock %}
 
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('assets/css/addList.css') }}"/>
+{% endblock %}
+
 {% block body %}
-	<main>
-		{{form(form)}}
-		</main>
+	<main class="container">
+		<div class="group">  
+			{{form_start(form)}}
+				{{form_widget(form.nomDeLaListe)}}
+				<span class="highlight"></span>
+				<span class="bar"></span>
+				{{form_label(form.nomDeLaListe)}}
+			{{form_end(form)}}
+		</div>
+	</main>
 	{% endblock %}

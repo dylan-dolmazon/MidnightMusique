@@ -97,10 +97,8 @@ h1 {
  }
 
  @media (max-width: 800px) {
- .container thead,tbody td:not(.ifConnected):nth-child(4),
- .container thead,tbody th:nth-child(4) { display: none; }
- .container thead,tbody td:not(.ifConnected):nth-child(5),
- .container thead,tbody th:nth-child(5) { display: none; }
+ .container thead th:nth-child(4),tbody td:not(.ifConnected):nth-child(4) { display: none; }
+ .container thead th:nth-child(5),tbody td:not(.ifConnected):nth-child(5) { display: none; }
  .container .ifConnected{display: none;}
 
     

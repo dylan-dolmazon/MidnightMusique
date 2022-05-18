@@ -49,8 +49,10 @@
 						</div>
 						{% if app.session.get('connected') is defined%}
 							{% if app.session.get('connected') == true %}
-								<a href="{{path('remove_evenement', {'id': evenement.id})}}">Supprimer l'évenement</a>
-								<a href="{{ path('add_liste',{'id':evenement.id}) }}">Ajouter une liste de musiques</a>
+								<div class="dynamique">
+									<a href="{{path('remove_evenement', {'id': evenement.id})}}">Supprimer l'évenement</a>
+									<a id="secondlink" href="{{ path('add_liste',{'id':evenement.id}) }}">Ajouter une liste de musiques</a>
+								</div>
 							{% endif %}
 						{% endif %}
 					</div>

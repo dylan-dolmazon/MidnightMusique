@@ -22,7 +22,7 @@ body {
   content: '';
   position: absolute;
   width: 2px;
-  background: #5292CF;
+  background: #4dacaa;
   top: 0;
   bottom: 0;
   left: 50%;
@@ -52,7 +52,7 @@ body {
   top: calc(50% - 8px);
   right: -8px;
   background: #ffffff;
-  border: 2px solid #5292CF;
+  border: 2px solid #4dacaa;
   border-radius: 16px;
   z-index: 1;
 }
@@ -68,7 +68,7 @@ body {
   height: 2px;
   top: calc(50% - 1px);
   right: 8px;
-  background: #5292CF;
+  background: #4dacaa;
   z-index: 1;
 }
 
@@ -81,9 +81,9 @@ body {
   display: inline-block;
   top: calc(50% - 8px);
   text-align: center;
-  font-size: 14px;
+  font-size: 18px;
   font-weight: bold;
-  color: #5292CF;
+  color: #4dacaa;
   text-transform: uppercase;
   letter-spacing: 1px;
   z-index: 1;
@@ -105,11 +105,11 @@ body {
   padding: 9px 0;
   top: calc(50% - 20px);
   background: #FFB758;
-  border: 2px solid #5292CF;
+  border: 2px solid #4dacaa;
   border-radius: 40px;
   text-align: center;
   font-size: 18px;
-  color: #5292CF;
+  color: #4dacaa;
   z-index: 1;
 }
 
@@ -145,7 +145,7 @@ body {
   font-size: 16px;
   line-height: 22px;
   color: #000000;
-  border: thick double #32a1ce;;
+  border: thick double #4dacaa;;
     display: inline-block;
     padding: 5px 5px 5px 5px;
 }
@@ -185,7 +185,7 @@ body {
   .container.left::before,
   .container.right::before {
     left: 100px;
-    border-color: transparent #5292CF transparent transparent;
+    border-color: transparent #4dacaa transparent transparent;
   }
 
   .container.left .date,
@@ -257,16 +257,16 @@ main button {
 	font-weight: bold;
 	color: black;
 	background: white;
-	border: 2px solid #32a1ce;
-	box-shadow: 5px 5px 0 #32a1ce,
-		-5px -5px 0 #32a1ce,
-		-5px 5px 0 #32a1ce,
-		5px -5px 0 #32a1ce;
+	border: 2px solid #4dacaa;
+	box-shadow: 5px 5px 0 #4dacaa,
+		-5px -5px 0 #4dacaa,
+		-5px 5px 0 #4dacaa,
+		5px -5px 0 #4dacaa;
 	transition: 500ms ease-in-out;
 }
 
 main button:hover {
-	box-shadow: 20px 5px 0 #32a1ce, -20px -5px 0 #32a1ce;
+	box-shadow: 20px 5px 0 #4dacaa, -20px -5px 0 #4dacaa;
 }
 
 main button:focus {
@@ -374,4 +374,19 @@ main button:focus {
   margin-left: 53%;
 }
 
-/****** end link voir
+/****** end link voir *******/
+
+.dynamique a{
+  text-decoration: none;
+  color: #000;
+}
+
+.dynamique a:hover{
+  text-decoration: underline blue; 
+  color: blue;
+  font-size: 1.1em;
+}
+
+.dynamique #secondlink{
+  margin-left: 10px;
+}

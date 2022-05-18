@@ -22,8 +22,12 @@ class ListMusiqueController extends AbstractController
     {
 
         $form = $this->createFormBuilder()
-            ->add('listName', TextType::class)
-            ->add('send', SubmitType::class)
+            ->add('nomDeLaListe', TextType::class)
+            ->add('SEND', SubmitType::class, array(
+                'attr' => array(
+                    'class' => 'glow-on-hover'
+                )
+            ))
             ->getForm();
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
@@ -33,7 +37,7 @@ class ListMusiqueController extends AbstractController
             $data = $form->getData();
 
             $listMusique = new ListMusique();
-            $listMusique->setNomList($data['listName']);
+            $listMusique->setNomList($data['nomDeLaListe']);
             $listMusique->setIdEvenement($evenement);
 
             $entityManagerInterface->persist($listMusique);

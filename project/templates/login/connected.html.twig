@@ -4,12 +4,18 @@
 {% block title %}LoginController
 {% endblock %}
 
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{asset('assets/css/connected.css')}}">
+{% endblock %}
+
 {% block body %}
 	<main>
-		<h1>Bienvenue
-			{{username}}!</h1>
+		<h1>Bonjour
+			<span>{{username}}</span> !</h1>
 		<h2>Vous êtes connecté sous le role de
-			{{role}}</h2>
-		<a href="{{ path('logout') }}" title="page connexion">Déconnexion</a>
+			<span>{{role}}</span></h2>
+
+		<p>Vous avez accés à l'ajout/suppression d'évenement, l'ajout de liste de musique et supression des musiques et des avis maissés par les clients.</p>
+		<div id="deconnexion"><a class ='glow-on-hover' href="{{ path('logout') }}" title="page connexion">Déconnexion</a></div>
 	</main>
 {% endblock %}
