@@ -41,30 +41,48 @@
 					</th>
 				</tr>
 			</thead>
-		</tr>
-	</thead>
-	<tbody>
-		{% for cpt in cpt * 10 .. cpt * 10 + 9 %}
-			<tr>
-				{% if musiques[cpt] is defined %}
-					{% if connected is defined %}
-						<td class="ifConnected">
-							<a href="{{path('dele_Musique',{'id': musiques[cpt].id})}}"><img src="https://img.icons8.com/emoji/32/000000/cross-mark-button-emoji.png"/></a>
-						</td>
-						<!--<td class="ifConnected"><a href=""><img src="https://img.icons8.com/color/32/000000/pencil-tip.png"/></a></td>-->
-					{% endif %}
-					<td>{{musiques[cpt].titre}}</td>
-					<td>{{musiques[cpt].artist}}</td>
-					<td>{{musiques[cpt].album}}</td>
-					<td>{{musiques[cpt].annee}}</td>
-					<td>{{musiques[cpt].style}}</td>
-				{% endif %}
-			</tr>
-		{% endfor %}
-	</tbody>
-</tbody>
-<tfoot>
-	<tr class="notshadow">
-		<td>{{ knp_pagination_render(musiques) }}</td>
-	</tr>
-</tfoot></table></main><aside>{{form(form)}}</aside>{% endblock %}
+			<tbody>
+				{% for cpt in cpt * 10 .. cpt * 10 + 9 %}
+					<tr>
+						{% if musiques[cpt] is defined %}
+							{% if connected is defined %}
+								<td class="ifConnected">
+									<a href="{{path('dele_Musique',{'id': musiques[cpt].id})}}"><img src="https://img.icons8.com/emoji/32/000000/cross-mark-button-emoji.png"/></a>
+								</td>
+								<!--<td class="ifConnected"><a href=""><img src="https://img.icons8.com/color/32/000000/pencil-tip.png"/></a></td>-->
+							{% endif %}
+							<td>{{musiques[cpt].titre}}</td>
+							<td>{{musiques[cpt].artist}}</td>
+							<td>{{musiques[cpt].album}}</td>
+							<td>{{musiques[cpt].annee}}</td>
+							<td>{{musiques[cpt].style}}</td>
+						{% endif %}
+					</tr>
+				{% endfor %}
+			</tbody>
+			<tfoot>
+				<tr class="notshadow">
+					<td>{{ knp_pagination_render(musiques) }}</td>
+				</tr>
+			</tfoot>
+		</table>
+	</main>
+	<aside>
+		<p>Rechercher une Musique</p>
+		{{form_start(form)}}
+			<div class="dropdown">
+				{{form_widget(form.search)}}
+			</div>
+			<div class ="contain-group">
+				<div class="group">  
+				{{form_start(form)}}
+					{{form_widget(form.data)}}
+					<span class="highlight"></span>
+					<span class="bar"></span>
+					{{form_label(form.data)}}
+				{{form_end(form)}}
+			</div>
+		</div>
+		{{form_end(form)}}
+	</aside>
+{% endblock %}

@@ -52,17 +52,24 @@ class MusiqueController extends AbstractController
         $form = $this->createFormBuilder()
             ->add('search', ChoiceType::class, [
                 'choices' => [
-                    'artist' => 'artist',
-                    'titre' => 'titre',
-                    'album' => 'album',
-                    'style' => 'style',
-                    'annee' => 'annee',
+                    'Artist' => 'artist',
+                    'Titre' => 'titre',
+                    'Album' => 'album',
+                    'Style' => 'style',
+                    'Annee' => 'annee',
                 ],
+                'attr' => array(
+                    'class' => 'dropdown-select'
+                )
             ])
             ->add('data', TextType::class, [
                 'required' => true,
             ])
-            ->add('send', SubmitType::class)
+            ->add('send', SubmitType::class, array(
+                'attr' => array(
+                    'class' => 'glow-on-hover'
+                )
+            ))
             ->getForm();
 
         $form->handleRequest($request);
