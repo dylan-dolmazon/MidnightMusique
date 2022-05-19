@@ -64,3 +64,8 @@ dele_Avis:
 add_Email:
   path: /contact
   controller: App\Controller\ContactController::index
+
+acceuil:
+  path: /acceuil
+  controller: App\Controller\AcceuilController::index
+  

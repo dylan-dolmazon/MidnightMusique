@@ -8,33 +8,107 @@
 
 {% block body %}
 <main>
-    <img src="" alt="">
-    <div  id="materielContain" >
-        <h2>Mon matériel</h2>
-        <div>
-            <div id="imgOne">
-                <img src="" alt="">
+    <div class="carousel">
+        <ul class="slides">
+        <input type="radio" name="radio-buttons" id="img-1" checked />
+        <li class="slide-container">
+            <div class="slide-image">
+            <img src="{{asset('assets/images/dj.png')}}">
             </div>
-            <div id="textTwo">
-                <h3></h3>
-                <p></p>
+            <div class="carousel-controls">
+            <label for="img-3" class="prev-slide">
+                <span>&lsaquo;</span>
+            </label>
+            <label for="img-2" class="next-slide">
+                <span>&rsaquo;</span>
+            </label>
             </div>
-            <div id="imgThree">
-                <img src="" alt="">
+        </li>
+        <input type="radio" name="radio-buttons" id="img-2" />
+        <li class="slide-container">
+            <div class="slide-image">
+            <img src="{{asset('assets/images/background.jpeg')}}">
             </div>
-            <div id="textOne">
-                <h3></h3>
-                <p></p>
+            <div class="carousel-controls">
+            <label for="img-1" class="prev-slide">
+                <span>&lsaquo;</span>
+            </label>
+            <label for="img-3" class="next-slide">
+                <span>&rsaquo;</span>
+            </label>
             </div>
-            <div id="imgTwo">
-                <img src="" alt="">
+        </li>
+        <input type="radio" name="radio-buttons" id="img-3" />
+        <li class="slide-container">
+            <div class="slide-image">
+            <img src="{{asset('assets/images/evenement.jpeg')}}">
             </div>
-            <div id="textThree">
-                <h3></h3>
-                <p></p>
+            <div class="carousel-controls">
+            <label for="img-2" class="prev-slide">
+                <span>&lsaquo;</span>
+            </label>
+            <label for="img-1" class="next-slide">
+                <span>&rsaquo;</span>
+            </label>
+            </div>
+        </li>
+        <div class="carousel-dots">
+            <label for="img-1" class="carousel-dot" id="img-dot-1"></label>
+            <label for="img-2" class="carousel-dot" id="img-dot-2"></label>
+            <label for="img-3" class="carousel-dot" id="img-dot-3"></label>
+        </div>
+        </ul>
+    </div>
+
+    <div id="about">
+        <div id="aboutLeft">
+            <img src="{{asset('assets/images/logo.png')}}" alt="">
+            <div>
+                <h2>MidnightMusique</h2>
+                <p>zhjebzebcjkckjdsndjkcndskjcndsjkcnsdkjdcnskjcnsdjknc</p>
+            </div>
+        </div>
+        <div id="aboutRight">
+            <div id="textbackground">
+                <p>jnvzjznvzjnvzjvnzjkvnzkjvnzkjvnzjkvnzkjvnzjknvkjzvzjkvnzjvzjvnkjzvnz</p>
+            </div>
+            <div id="rightUnder">
+                <h2>MidnightMusique</h2>
+                <p>zhjebzebcjkckjdsndjkcndskjcndsjkcnsdkjdcnskjcnsdjknc</p>
             </div>
         </div>
     </div>
 
+    <div  id="materielContain" >
+        <h2>Mon matériel</h2>
+        <div id="materielTable">
+            <div id="imgOne">
+                <img class="imgMateriel" src="{{asset('assets/images/logo.png')}}" alt="">
+            </div>
+            <div id="textTwo">
+                <h3>Test</h3>
+                <p>Test</p>
+            </div>
+            <div id="imgThree">
+                <img class="imgMateriel" src="{{asset('assets/images/logo.png')}}" alt="">
+            </div>
+            <div id="textOne">
+                <h3>Test</h3>
+                <p>Test</p>
+            </div>
+            <div id="imgTwo">
+                <img class="imgMateriel" src="{{asset('assets/images/logo.png')}}" alt="">
+            </div>
+            <div id="textThree">
+                <h3>Test</h3>
+                <p>Test</p>
+            </div>
+        </div>
+    </div>
+    <div>
 </main>
+{% endblock %}
+
+{% block javascripts %}
+<script src="{{asset('assets/js/carousel.js')}}"></script>
 {% endblock %}
