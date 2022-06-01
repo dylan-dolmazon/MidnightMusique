@@ -82,20 +82,24 @@
             </div>
             </div>
             <div class="contact-form-wrapper">
-            <form>
-                <div class="form-item">
-                <input type="text" name="sender" required>
-                <label>Name:</label>
-                </div>
-                <div class="form-item">
+            <form action="{{path('send_Email')}}" method="post">
+            <div class="form-item">
                 <input type="text" name="email" required>
                 <label>Email:</label>
+                </div>
+                <div class="form-item">
+                <input type="text" name="subject" required>
+                <label>Sujet:</label>
+                </div>
+                <div class="form-item">
+                <input type="text" name="sender" required>
+                <label>Nom, Prénom:</label>
                 </div>
                 <div class="form-item">
                 <textarea class="" name="message" required></textarea>
                 <label>Message:</label>
                 </div>
-                <button class="submit-btn">Send</button>  
+                <button type="submit" class="submit-btn">Send</button>  
             </form>
             </div>
         </div>

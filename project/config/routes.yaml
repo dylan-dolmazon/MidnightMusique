@@ -60,12 +60,10 @@ dele_Avis:
   path: /avis/del/{id}
   controller: App\Controller\AvisController::deleteAvis
 
-
-add_Email:
-  path: /contact
-  controller: App\Controller\ContactController::index
-
 acceuil:
   path: /acceuil
   controller: App\Controller\AcceuilController::index
   
+send_Email:
+  path: /email
+  controller: App\Controller\AcceuilController::contact
