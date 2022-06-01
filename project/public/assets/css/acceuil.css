@@ -227,3 +227,7 @@ input:checked + .slide-container .nav label { display: block; }
     margin-right: auto;
     padding: 20px 20px 20px 20px;
 }
+
+#materielContain h2 {
+    text-align: center;
+}
