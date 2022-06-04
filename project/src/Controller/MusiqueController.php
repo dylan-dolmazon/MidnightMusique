@@ -17,8 +17,6 @@ use Symfony\Component\HttpFoundation\Response;
 class MusiqueController extends AbstractController
 {
 
-
-
     public function addMusique(?Musique $musique, Request $request, EntityManagerInterface $entityManagerInterface): Response
     {
 
@@ -45,9 +43,6 @@ class MusiqueController extends AbstractController
 
     public function showMusique(Request $request, PaginatorInterface $paginator, CallApiService $callApiService)
     {
-
-        dump($callApiService->getData());
-        die;
 
         $donnees = $this->getDoctrine()->getRepository(Musique::class)->findAll();
 
