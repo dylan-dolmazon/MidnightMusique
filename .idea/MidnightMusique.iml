@@ -137,6 +137,22 @@
       <excludeFolder url="file://$MODULE_DIR$/project/vendor/phpunit/php-invoker" />
       <excludeFolder url="file://$MODULE_DIR$/project/vendor/phpunit/php-code-coverage" />
       <excludeFolder url="file://$MODULE_DIR$/project/vendor/phpunit/phpunit" />
+      <excludeFolder url="file://$MODULE_DIR$/project/vendor/swiftmailer/swiftmailer" />
+      <excludeFolder url="file://$MODULE_DIR$/project/vendor/symfony/swiftmailer-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/project/vendor/symfony/google-mailer" />
+      <excludeFolder url="file://$MODULE_DIR$/project/vendor/knplabs/knp-paginator-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/project/vendor/knplabs/knp-components" />
+      <excludeFolder url="file://$MODULE_DIR$/project/vendor/jwilsson/spotify-web-api-php" />
+      <excludeFolder url="file://$MODULE_DIR$/project/vendor/guzzlehttp/guzzle" />
+      <excludeFolder url="file://$MODULE_DIR$/project/vendor/guzzlehttp/promises" />
+      <excludeFolder url="file://$MODULE_DIR$/project/vendor/guzzlehttp/psr7" />
+      <excludeFolder url="file://$MODULE_DIR$/project/vendor/kerox/oauth2-spotify" />
+      <excludeFolder url="file://$MODULE_DIR$/project/vendor/league/oauth2-client" />
+      <excludeFolder url="file://$MODULE_DIR$/project/vendor/paragonie/random_compat" />
+      <excludeFolder url="file://$MODULE_DIR$/project/vendor/ralouphie/getallheaders" />
+      <excludeFolder url="file://$MODULE_DIR$/project/vendor/psr/http-client" />
+      <excludeFolder url="file://$MODULE_DIR$/project/vendor/psr/http-factory" />
+      <excludeFolder url="file://$MODULE_DIR$/project/vendor/psr/http-message" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

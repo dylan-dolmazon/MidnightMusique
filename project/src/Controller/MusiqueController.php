@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Musique;
 use App\Form\MusiqueType;
+use App\Service\CallApiService;
 use Doctrine\ORM\EntityManagerInterface;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -15,6 +16,9 @@ use Symfony\Component\HttpFoundation\Response;
 
 class MusiqueController extends AbstractController
 {
+
+
+
     public function addMusique(?Musique $musique, Request $request, EntityManagerInterface $entityManagerInterface): Response
     {
 
@@ -39,8 +43,12 @@ class MusiqueController extends AbstractController
         ]);
     }
 
-    public function showMusique(Request $request, PaginatorInterface $paginator)
+    public function showMusique(Request $request, PaginatorInterface $paginator, CallApiService $callApiService)
     {
+
+        dump($callApiService->getData());
+        die;
+
         $donnees = $this->getDoctrine()->getRepository(Musique::class)->findAll();
 
         $musiques = $paginator->paginate(
