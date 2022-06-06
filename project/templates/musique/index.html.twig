@@ -3,10 +3,34 @@
 {% block title %}Hello MusiqueController!
 {% endblock %}
 {% block stylesheets %}
-	<link rel="stylesheet" href="{{ asset('assets/css/addevenement.css') }}">
+	<link rel="stylesheet" href="{{ asset('assets/css/addMusique.css') }}">
 {% endblock %}
 {% block body %}
 	<main>
+		<div id="searchform">
+			<p>Rechercher une Musique</p>
+			{{form_start(searchform)}}
+			<div class ="contain-group">
+				<div class="group">
+					{{form_widget(searchform.Artiste)}}
+					<span class="highlight"></span>
+					<span class="bar"></span>
+				</div>
+			</div>
+			<div class="dropdown">
+				{{form_widget(searchform.Search)}}
+			</div>
+			<div class ="contain-group">
+				<div class="group">
+					{{form_widget(searchform.Choice)}}
+					<span class="highlight"></span>
+					<span class="bar"></span>
+				</div>
+			</div>
+			{{form_end(searchform)}}
+		</div>
+	</main>
+	<aside>
 		<div class="login-box">
 			{{form_start(form)}}
 			<div class="user-box">
@@ -31,5 +55,5 @@
 			</div>
 			{{form_end(form)}}
 		</div>
-	</main>
+	</aside>
 {% endblock %}

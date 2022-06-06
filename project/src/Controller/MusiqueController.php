@@ -17,7 +17,7 @@ use Symfony\Component\HttpFoundation\Response;
 class MusiqueController extends AbstractController
 {
 
-    public function addMusique(?Musique $musique, Request $request, EntityManagerInterface $entityManagerInterface): Response
+    public function addMusique(?Musique $musique, Request $request, EntityManagerInterface $entityManagerInterface, CallApiService $callApiService): Response
     {
 
         if (!$musique) {
@@ -36,12 +36,63 @@ class MusiqueController extends AbstractController
             return $this->redirect($this->generateUrl('add_musique'));
         }
 
+        $searchform = $this->createFormBuilder()
+            ->add('Artiste', TextType::class, array(
+                    'required' => true,
+                   'attr' => array(
+                       'placeholder' => 'Artiste',
+                    )
+                )
+            )
+            ->add('Search', ChoiceType::class, [
+                'choices' => [
+                    'Titre' => 'titre',
+                    'Album' => 'album',
+                ],
+                'attr' => array(
+                    'class' => 'dropdown-select'
+                )
+            ])
+            ->add('Choice', TextType::class, array(
+                    'required' => false,
+                    'attr' => array(
+                        'placeholder' => 'Nom',
+                    )
+                )
+            )
+
+            ->add('send', SubmitType::class, array(
+                'attr' => array(
+                    'class' => 'glow-on-hover'
+                )
+            ))
+            ->getForm();
+
+        $searchform->handleRequest($request);
+        if ($searchform->isSubmitted() && $searchform->isValid()) {
+            // data is an array with "name", "email", and "message" keys
+            $data = $searchform->getData();
+
+            if(isset($data['Choice'])){
+                if($data['Search'] === 'album'){
+                    $resultat = $callApiService->getData('album',$data);
+                }else{
+                    $resultat = $callApiService->getData('musique',$data);
+                }
+            }else {
+                $resultat = $callApiService->getData('artiste',$data);
+            }
+            dump($resultat);
+            die;
+        }
+
         return $this->render('musique/index.html.twig', [
             'form' => $form->createView(),
+            'searchform' => $searchform->createView()
         ]);
     }
 
-    public function showMusique(Request $request, PaginatorInterface $paginator, CallApiService $callApiService)
+    public function showMusique(Request $request, PaginatorInterface $paginator)
     {
 
         $donnees = $this->getDoctrine()->getRepository(Musique::class)->findAll();
@@ -86,8 +137,6 @@ class MusiqueController extends AbstractController
                 1,
                 count($donnees)
             );
-
-            dump($musiques);
         }
 
         return $this->render('musique/catalogue.html.twig', [
