@@ -41,6 +41,6 @@
 
 ## Charte graphique
 
-- bleu: #5292CF
-- orange: #FFB758
-- blanc: #FFFFFF
+- bleu-clair: #22b8e0
+- bleu-foncé: #3355e3
+- blanc-neige: #FEFEFE
